@@ -2,7 +2,7 @@ Project Description:
 	•	This project is a car-sharing website modeled after Turo (formerly RelayRides). Users should be able to login and post their own cars for rent, or browse listings and find a car to reserve.
 
 Feature List:
-	•	Minimum Viable:
+	Minimum Viable:
 	•	Can CRUD user accounts
 	•	Cars can be listed on the platform with listing title, make/model, location, description, and one photo; owner can remove listings
 	•	Users can reserve a car, which will remove them from the listed cars view and add them to rental requests for the owner
@@ -10,7 +10,8 @@ Feature List:
 	•	Login validations are present
 	•	Car listing validations are present
 	•	Cannot access dashboard unless logged in
-	•	Backlog:
+	
+	Backlog:
 	•	Multiple photos per listing
 	•	Search by date/filter by date available for rentals
 	•	Filter by location
