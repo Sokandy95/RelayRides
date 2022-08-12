@@ -19,3 +19,5 @@ Feature List:
 	•	Owners approve/cancel the reservation to update the reservation status or cancel and re-list the car
 
 Stack: Java
+
+Developers: Lydia Sollis, Abraham Soto, Andy Chim
