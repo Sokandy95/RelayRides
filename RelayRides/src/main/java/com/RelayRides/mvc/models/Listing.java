@@ -119,6 +119,14 @@ public class Listing {
 		this.description = description;
 	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public Date getCreated_at() {
 		return created_at;
 	}

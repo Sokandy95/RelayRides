@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.RelayRides.mvc.services.BookingService;
+import com.RelayRides.mvc.services.FileService;
 import com.RelayRides.mvc.services.ListingService;
 import com.RelayRides.mvc.services.UserService;
 import com.RelayRides.mvc.models.LoginUser;
@@ -22,6 +23,9 @@ public class MainController {
 	
 	@Autowired
 	private ListingService listingService;
+	
+	@Autowired
+	private FileService fileService;
 	
 	@GetMapping("/")
 	public String homePage() {
