@@ -42,6 +42,9 @@ public class Listing {
 	@Size(min=10, max=300, message = "Description must be between 10-300 characters long!")
 	private String description;
 	
+	// stores URL of image upload
+	private String imageUrl;
+	
 	private Date created_at;
 	private Date updated_at;
 	
