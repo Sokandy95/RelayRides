@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -43,9 +45,20 @@ public class Listing {
 	private Date created_at;
 	private Date updated_at;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	public Listing() {}
+
+    @PrePersist
+    protected void onCreate(){
+        this.created_at = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updated_at = new Date();
+    }
 
 	public Long getId() {
 		return id;

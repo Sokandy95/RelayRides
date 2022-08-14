@@ -12,6 +12,8 @@ public class LoginUser {
 	@NotEmpty(message = "Please enter your password")
 	@Size(min = 8, max = 20, message = "Password must be between 8-20 characters long!")
 	private String password;
+	
+	public LoginUser() {}
 
 	public String getEmail() {
 		return email;

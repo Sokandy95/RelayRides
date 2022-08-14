@@ -9,8 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -32,6 +35,10 @@ public class User {
 	@NotEmpty(message = "Last name is required!")
 	@Size(min = 2, max = 20, message = "Last name must be between 2-20 characters long!")
 	private String last_name;
+
+	@NotEmpty(message="email is required")
+    @Email(message="please enter a valid email")
+    private String email;
 	
 	@NotEmpty(message = "Password is required!")
 	@Size(min = 8, max = 20, message = "Password must be between 8-20 characters long!")
@@ -44,11 +51,22 @@ public class User {
 	private Date created_at;
 	private Date updated_at;
 	
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Listing> listings;
 	
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Booking> bookings;
+	
+	public User() {}
+
+    @PrePersist
+    protected void onCreate(){
+        this.created_at = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updated_at = new Date();
+    }
 
 	public Long getId() {
 		return id;
@@ -80,6 +98,14 @@ public class User {
 
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
+	}
+	
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
