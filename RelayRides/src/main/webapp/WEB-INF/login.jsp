@@ -39,9 +39,9 @@
 				<h2>Login</h2>
 				<form:form action="/login" method="post" modelAttribute="newLogin">
 					<div class="form-group">
-						<form:label for="userName" path="userName" class="form-label">Username:</form:label>
-						<form:input path="userName" class="form-control" />
-						<form:errors path="userName" class="text-danger"/>
+						<form:label for="email" path="email" class="form-label">Email:</form:label>
+						<form:input path="email" class="form-control" />
+						<form:errors path="email" class="text-danger"/>
 					</div>
 					<div class="form-group">
 						<form:label for="password" path="password" class="form-label">Password:</form:label>
@@ -55,19 +55,19 @@
 				<h2>New User? Register Here!</h2>
 				<form:form action="/register" method="post" modelAttribute="newUser">
 					<div class="form-group">
-						<form:label for="userName" path="userName" class="form-label">User Name:</form:label>
-						<form:input path="userName" class="form-control"/>
-						<form:errors path="userName" class="text-danger"/>
+						<form:label for="username" path="username" class="form-label">Username:</form:label>
+						<form:input path="username" class="form-control"/>
+						<form:errors path="username" class="text-danger"/>
 					</div>
 					<div class="form-group">
-						<form:label for="firstName" path="firstName" class="form-label">First Name:</form:label>
-						<form:input path="firstName" class="form-control"/>
-						<form:errors path="firstName" class="text-danger"/>
+						<form:label for="first_name" path="first_name" class="form-label">First Name:</form:label>
+						<form:input path="first_name" class="form-control"/>
+						<form:errors path="first_name" class="text-danger"/>
 					</div>
 					<div class="form-group">
-						<form:label for="lastName" path="lastName" class="form-label">Last Name:</form:label>
-						<form:input path="lastName" class="form-control"/>
-						<form:errors path="lastName" class="text-danger"/>
+						<form:label for="last_name" path="last_name" class="form-label">Last Name:</form:label>
+						<form:input path="last_name" class="form-control"/>
+						<form:errors path="last_name" class="text-danger"/>
 					</div>
 					<div class="form-group">
 						<form:label for="email" path="email" class="form-label">Email:</form:label>
@@ -80,9 +80,9 @@
 						<form:errors path="password" class="text-danger"/>
 					</div>
 					<div class="form-group">
-						<form:label for="confirm" path="confirm" class="form-label">Confirm Password:</form:label>
-						<form:input type="password" path="confirm" class="form-control" />
-						<form:errors path="confirm" class="text-danger"/>
+						<form:label for="confirmPW" path="confirmPW" class="form-label">Confirm Password:</form:label>
+						<form:input type="password" path="confirmPW" class="form-control" />
+						<form:errors path="confirmPW" class="text-danger"/>
 					</div>
 					<input type="submit" class="btn btn-outline-dark mt-3" value="Submit" />
 				</form:form>
