@@ -27,6 +27,9 @@ public class Booking {
 	@NotEmpty(message = "Please enter an end date for your booking.")
 	private Date end_date;
 	
+	private String formattedStartDate;
+	private String formattedEndDate;
+	
 	private Date created_at;
 	private Date updated_at;
 	
@@ -71,6 +74,22 @@ public class Booking {
 
 	public void setEnd_date(Date end_date) {
 		this.end_date = end_date;
+	}
+
+	public String getFormattedStartDate() {
+		return formattedStartDate;
+	}
+
+	public void setFormattedStartDate(String formattedStartDate) {
+		this.formattedStartDate = formattedStartDate;
+	}
+
+	public String getFormattedEndDate() {
+		return formattedEndDate;
+	}
+
+	public void setFormattedEndDate(String formattedEndDate) {
+		this.formattedEndDate = formattedEndDate;
 	}
 
 	public Date getCreated_at() {

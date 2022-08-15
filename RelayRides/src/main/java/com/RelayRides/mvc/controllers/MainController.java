@@ -1,5 +1,7 @@
 package com.RelayRides.mvc.controllers;
 
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -10,11 +12,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.RelayRides.mvc.services.BookingService;
 import com.RelayRides.mvc.services.FileService;
 import com.RelayRides.mvc.services.ListingService;
 import com.RelayRides.mvc.services.UserService;
+import com.RelayRides.mvc.models.Listing;
 import com.RelayRides.mvc.models.LoginUser;
 import com.RelayRides.mvc.models.User;
 
@@ -32,6 +37,8 @@ public class MainController {
 	
 	@Autowired
 	private FileService fileService;
+	
+	SimpleDateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy");
 	
 	@GetMapping("/")
 	public String homePage() {
@@ -104,6 +111,50 @@ public class MainController {
     	
     	return "dashboard.jsp";
     	
+    }
+    
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+    	// log out user
+    	session.setAttribute("userId", null);
+    	// redirect to login page
+    	return "redirect:/";
+    }
+    
+    @GetMapping("/listing/new")
+    public String newListing(Model model, HttpSession session, @ModelAttribute("listing") Listing listing) {
+    	
+    	User user = userService.findById((Long)session.getAttribute("userId"));
+    	model.addAttribute("user", user);
+    	
+    	return "newListing.jsp";
+    }
+    
+    @PostMapping("/listing/create")
+    public String createListing(
+    		@Valid @ModelAttribute("listing") Listing listing,
+    		BindingResult result,
+    		//RedirectAttributes redirectAttributes,
+    		Model model,
+    		@RequestParam("file") MultipartFile file) {
+    	
+    	if(result.hasErrors()) {
+    		model.addAttribute("listing", listing);
+    		return "newListing.jsp";
+    	}
+
+		this.fileService.save(file);
+		listing.setImageUrl("uploads/" + file.getOriginalFilename());
+    	
+		//booking.setFormattedStartDate(outputFormatter.format(booking.getCreatedOn()));
+		//booking.setFormattedStartDate(outputFormatter.format(booking.getCreatedOn()));
+    	//System.out.println("Simple date: " + listing.getSimpleDate());
+    	
+    	this.listingService.createListing(listing);
+    	
+    	//redirectAttributes.addFlashAttribute("message", "gallery piece added");
+    	
+    	return "redirect:/dashboard";
     }
 	
 }

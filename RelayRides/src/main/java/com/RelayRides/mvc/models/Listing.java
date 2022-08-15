@@ -12,7 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -26,19 +28,23 @@ public class Listing {
 	@Size(min = 5, max = 20, message = "Make/Model must be between 5-20 characters long!")
 	private String model;
 	
+	@NotEmpty(message = "Listing title is required!")
+	@Size(min = 5, max = 128, message = "Listing Title must be between 5-128 characters long!")
+	private String title;
+	
 	@NotEmpty(message = "Location is required!")
 	@Size(min = 5, max = 30, message = "Location must be between 5-30 characters long!")
 	private String location;
 	
-	@NotEmpty(message = "Please enter the daily rate!")
+	@NotNull(message = "Please enter the daily rate!")
 	private Float rate;
 	
-	@NotEmpty(message = "Please enter how many seats your vehicle has!")
+	@NotNull(message = "Please enter how many seats your vehicle has!")
 	private Integer seats;
 	
-	@NotEmpty(message = "Please let us know if your vehicle is on the market!")
-	private Boolean on_market;
+	private Boolean on_market = true;
 	
+	@NotEmpty(message = "Description is required!")
 	@Size(min=10, max=300, message = "Description must be between 10-300 characters long!")
 	private String description;
 	
@@ -77,6 +83,14 @@ public class Listing {
 
 	public void setModel(String model) {
 		this.model = model;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getLocation() {

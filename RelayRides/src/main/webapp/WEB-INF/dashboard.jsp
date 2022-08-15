@@ -61,7 +61,7 @@
 				</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="galleryPiece" items="${galleryPieces}">
+					<c:forEach var="booking" items="${bookings}">
 						<tr>
 							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
 							<td><c:out value="${booking.getListing().getLocation()}"></c:out></td>
@@ -72,6 +72,66 @@
 							<td>
 								<a class="btn btn-outline-dark" href="/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
 								<a class="btn btn-outline-danger" href="/delete/<c:out value="${booking.getId()}"></c:out>">Delete</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+				<div class="container bg-light mb-5">
+			<h3>My Owner Dashboard</h3>
+			<a class="btn btn-outline-dark" href="/listing/new">List a New Car</a>
+			<h5>My Cars</h5>
+			<table class="table text-nowrap" id="tbl">
+				<thead>
+				<tr>
+					<th scope="col">Thumbnail</th>
+					<th scope="col">Listing Title</th>
+					<th scope="col">Car Make/Model</th>
+					<th scope="col">Description</th>
+					<th scope="col">Listing Actions</th>
+				</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="listing" items="${listings}">
+						<tr>
+							<td><img src="<c:out value="${listing.getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
+							<td><c:out value="${listing.getTitle()}"></c:out></td>
+							<td><c:out value="${listing.getModel()}"></c:out></td>
+							<td><c:out value="${listing.getDescription()}"></c:out></td>
+							<td>
+								<a class="btn btn-outline-dark" href="/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
+								<a class="btn btn-outline-danger" href="/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<h5>Customer Reservations/Requests</h5>
+			<table class="table text-nowrap" id="tbl">
+				<thead>
+				<tr>
+					<th scope="col">Thumbnail</th>
+					<th scope="col">Renter Name</th>
+					<th scope="col">Listing Title</th>
+					<th scope="col">Start Date</th>
+					<th scope="col">End Date</th>
+					<th scope="col">Status</th>
+					<th scope="col">Actions</th>
+				</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="booking" items="${bookings}">
+						<tr>
+							<td><img src="<c:out value="${booking().getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
+							<td><c:out value="${booking().getUser().getFirst_name}"></c:out> <c:out value="${booking().getUser().getLast_name}"></c:out></td>
+							<td><c:out value="${booking().getListing().getTitle()}"></c:out></td>
+							<td><c:out value="${booking().getListing().getModel()}"></c:out></td>
+							<td><c:out value="${booking.getStart_date}"></c:out></td>
+							<td><c:out value="${booking.getEnd_date}"></c:out></td>
+							<td>
+								<a class="btn btn-outline-dark" href="/edit/<c:out value="${booking.getId()}"></c:out>">Approve</a>
+								<a class="btn btn-outline-danger" href="/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
 							</td>
 						</tr>
 					</c:forEach>
