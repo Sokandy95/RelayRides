@@ -9,9 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -155,6 +158,48 @@ public class MainController {
     	//redirectAttributes.addFlashAttribute("message", "gallery piece added");
     	
     	return "redirect:/dashboard";
+    }
+    
+    @GetMapping("/listing/edit/{id}")
+    public String editGalleryPiece(Model model, @PathVariable("id") Long id, HttpSession session) {
+    	if(session.getAttribute("userId") == null) {
+    		return "redirect:/";
+    	}
+    	
+    	Listing listing = listingService.findById(id);
+    	model.addAttribute("listing", listing);
+    	
+    	return "editListing.jsp";
+    }
+    
+    @PutMapping("/listing/edit/{id}")
+    public String updateListing(
+    		@Valid @ModelAttribute("listing") Listing listing, 
+    		BindingResult result,
+    		Model model,
+    		@RequestParam("file") MultipartFile file) {
+    	System.out.println("listing: " + listing.getId());
+    	
+    	if(result.hasErrors()) {
+    		return "editListing.jsp";
+    	}
+    	
+    	if( !file.isEmpty()) {
+    		this.fileService.save(file);
+    		listing.setImageUrl("uploads/" + file.getOriginalFilename());
+        	System.out.println("New URL: " + listing.getImageUrl());
+    	}
+    	
+    	//listing.setSimpleDate(outputFormatter.format(listing.getCreatedOn()));
+    	
+    	listingService.updateListing(listing);
+    	return "redirect:/dashboard";
+    }
+    
+    @DeleteMapping("/listing/delete/{id}")
+    public String deleteListing(@PathVariable("id") Long id) {
+        listingService.deleteListing(id);
+        return "redirect:/dashboard";
     }
 	
 }
