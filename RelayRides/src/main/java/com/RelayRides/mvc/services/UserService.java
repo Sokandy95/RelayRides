@@ -27,7 +27,7 @@ public class UserService {
     	}
         // Reject if password doesn't match confirmation
     	if(!newUser.getPassword().equals(newUser.getConfirmPW())) {
-    		result.rejectValue("confirm", "Matches", "Confirm password must match password");
+    		result.rejectValue("confirmPW", "Matches", "Confirm password must match password");
     	}
         
         // Return null if result has errors

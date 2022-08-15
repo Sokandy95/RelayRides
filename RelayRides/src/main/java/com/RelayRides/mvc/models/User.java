@@ -36,16 +36,17 @@ public class User {
 	@Size(min = 2, max = 20, message = "Last name must be between 2-20 characters long!")
 	private String last_name;
 
-	@NotEmpty(message="email is required")
-    @Email(message="please enter a valid email")
+	@NotEmpty(message="Email is required!")
+    @Email(message="Please enter a valid email.")
     private String email;
 	
-	@NotEmpty(message = "Password is required!")
-	@Size(min = 8, max = 20, message = "Password must be between 8-20 characters long!")
-	private String password;
+    @NotEmpty(message="password is required!")
+    @Size(min=8, max=128, message="password must be between 8 and 128 characters")
+    private String password;
 	
 	@Transient
 	@NotEmpty(message = "Confirm password is required!")
+    @Size(min=8, max=128, message="confirm password must be between 8 and 128 characters")
 	private String confirmPW;
 	
 	private Date created_at;

@@ -26,7 +26,7 @@ public class Listing {
 	@Size(min = 5, max = 20, message = "Make/Model must be between 5-20 characters long!")
 	private String model;
 	
-	@NotEmpty(message = "Locationl is required!")
+	@NotEmpty(message = "Location is required!")
 	@Size(min = 5, max = 30, message = "Location must be between 5-30 characters long!")
 	private String location;
 	
