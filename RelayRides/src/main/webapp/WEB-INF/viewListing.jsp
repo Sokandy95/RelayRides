@@ -12,11 +12,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Relay Rides - Browse Rentals</title>
+<title><c:out value="${listing.getTitle() }"></c:out></title>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- for your local CSS -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
@@ -44,32 +44,27 @@
 			</div>
 		</nav>
 	</div>
-	<div class="container">
-		<div class="row">
-		<div class="col-lg-3 col-xs-12">
-		<div class="container">
-			<h3>Location</h3>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><a href="">Honolulu, HI</a></li>
-				<li class="list-group-item"><a href="">Las Vegas, NV</a></li>
-				<li class="list-group-item"><a href="">Washington, DC</a></li>
-				<li class="list-group-item"><a href="">Other</a></li>
-			</ul>
-		</div>
-		</div>
-		<div class="col-md-9 col-xs-12 d-lg-flex">
-			<c:forEach var="listing" items="${listings}">
-				<div class="container text-center bg-light p-4 m-2">
-					<a href="/listing/${listing.getId() }"><img src="<c:out value="${listing.getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" /></a>
-					<h4><c:out value="${listing.getTitle()}"></c:out></h4>
-					<p>Location: <c:out value="${listing.getLocation()}"></c:out></p>
-					<p>Rate: <c:out value="${listing.getRate()}"></c:out></p>
-					<p>Seats: <c:out value="${listing.getSeats()}"></c:out></p>
+	<div class="container d-flex justify-content-center">
+		<div class="container bg-light mb-5 p-5 col-md-10">
+			<div class="row">
+				<h1 class="mb-3"><c:out value="${listing.title }"></c:out></h1>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<img src="${listing.imageUrl }'" alt="${listing.imageUrl }" class="img-fluid" />
 				</div>
-			</c:forEach>
-		</div>
+				<div class="col">
+					<p>Make/Model: <c:out value="${listing.title }"></c:out></p>
+					<p>Location: <c:out value="${listing.location }"></c:out></p>
+					<p>Rate: <c:out value="${listing.rate }"></c:out></p>
+					<p>Seats: <c:out value="${listing.seats }"></c:out></p>
+					<p>Description: <c:out value="${listing.description }"></c:out></p>
+					<a class="btn btn-outline-dark" href="/listing/reserve/${listing.id }">Reserve Now!</a>
+				</div>
+			</div>
+			
 		</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

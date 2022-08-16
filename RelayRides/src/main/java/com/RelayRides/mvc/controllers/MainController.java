@@ -214,5 +214,19 @@ public class MainController {
     	
     	return "browseListings.jsp";
     }
+    
+    @GetMapping("/listing/{id}")
+    public String viewRental(HttpSession session, Model model, @PathVariable("id") Long id) {
+    	
+    	if(session.getAttribute("userId") == null) {
+    		return "redirect:/logout";
+    	}
+
+    	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
+    	model.addAttribute("listing", listingService.findById(id));
+    	Listing listing = listingService.findById(id);
+    	
+    	return "viewListing.jsp";
+    }
 	
 }
