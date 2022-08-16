@@ -201,5 +201,18 @@ public class MainController {
         listingService.deleteListing(id);
         return "redirect:/dashboard";
     }
+    
+    @GetMapping("/listings")
+    public String browseRentals(HttpSession session, Model model) {
+    	
+    	if(session.getAttribute("userId") == null) {
+    		return "redirect:/logout";
+    	}
+
+    	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
+    	model.addAttribute("listings", listingService.getAllListings());
+    	
+    	return "browseListings.jsp";
+    }
 	
 }
