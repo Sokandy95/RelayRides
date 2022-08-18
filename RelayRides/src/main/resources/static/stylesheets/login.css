@@ -1,5 +1,7 @@
 body {
 	background-image: url('pics/home.jpeg');
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 .btn-primary {
 	background-color: #f53163;
