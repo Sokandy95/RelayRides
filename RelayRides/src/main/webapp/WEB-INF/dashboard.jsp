@@ -39,6 +39,7 @@
 			<div></div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
+
 					<li class="nav-item mt-2">
 						<a class="nav-link active text-white browseLink" href="">
 							<span>
@@ -59,7 +60,6 @@
 								<i class="fa fa-user-circle me-1" style ="color: #fc46be"></i>
 							</span>
 							My Profile</a>
-					</li>
 					<li class="nav-item">
 						<a class="btn btn-secondary" href="/logout">
 							Logout</a>
@@ -76,6 +76,9 @@
 		<div class="container bg-light mb-5">
 			<h3 class='head pt-3 pb-1'>My Renter Dashboard</h3>
 			<a class="btn btn-outline-dark" href="">Browse Available Rentals</a>
+			<h3>My Renter Dashboard</h3>
+			<a class="btn btn-outline-dark" href="/listings">
+				Browse Available Rentals</a>
 			<table class="table text-nowrap" id="tbl">
 				<thead>
 				<tr>
@@ -127,8 +130,11 @@
 							<td><c:out value="${listing.getModel()}"></c:out></td>
 							<td><c:out value="${listing.getDescription()}"></c:out></td>
 							<td>
-								<a class="btn btn-outline-dark" href="/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
-								<a class="btn btn-outline-danger" href="/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
+								<a class="btn btn-outline-dark" href="/listing/edit/${listing.id}">Edit</a>
+								<form:form class="d-inline" action="/listing/delete/${listing.id}" method="post">
+									<input type="hidden" name="_method" value="delete">
+									<input type="submit" class="btn btn-outline-danger m-3" value="Delete">
+								</form:form>
 							</td>
 						</tr>
 					</c:forEach>
