@@ -26,14 +26,10 @@ public class Booking {
 
 	@NotEmpty(message = "Please enter an end date for your booking.")
 	private Date end_date;
-<<<<<<< Updated upstream
-
-=======
 	
 	private int numDays;
 	private float price;
 	
->>>>>>> Stashed changes
 	private String formattedStartDate;
 	private String formattedEndDate;
 
