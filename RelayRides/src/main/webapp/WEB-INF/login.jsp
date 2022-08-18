@@ -31,7 +31,7 @@
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
-			<div class="container-fluid">
+			<div class="container-fluid bg-dark opacity-75">
 				<a class="h1 text-white text-decoration-none me-3 siteTitle" href="/landing">
 					<span> 
 						<i class="fa fa-car h1" style=" color: #fc46be;"></i> 
