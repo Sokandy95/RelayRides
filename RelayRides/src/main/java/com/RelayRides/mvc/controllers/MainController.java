@@ -160,7 +160,7 @@ public class MainController {
 	}
 
 	@GetMapping("/listing/edit/{id}")
-	public String editGalleryPiece(Model model, @PathVariable("id") Long id, HttpSession session) {
+	public String editListing(Model model, @PathVariable("id") Long id, HttpSession session) {
 		if (session.getAttribute("userId") == null) {
 			return "redirect:/";
 		}
@@ -197,18 +197,6 @@ public class MainController {
 		listingService.deleteListing(id);
 		return "redirect:/dashboard";
 	}
-    
-    @GetMapping("/listing/edit/{id}")
-    public String editListing(Model model, @PathVariable("id") Long id, HttpSession session) {
-    	if(session.getAttribute("userId") == null) {
-    		return "redirect:/";
-    	}
-    	
-    	Listing listing = listingService.findById(id);
-    	model.addAttribute("listing", listing);
-    	
-    	return "editListing.jsp";
-    }
     
     @GetMapping("/listings")
     public String browseRentals(HttpSession session, Model model) {

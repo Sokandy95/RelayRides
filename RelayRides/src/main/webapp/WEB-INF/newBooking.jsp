@@ -81,11 +81,17 @@
 				<form:input type="number" name="numDays" path="numDays" class="form-control" min="1" max="30" />
 				<form:errors path="numDays" class="text-danger" />
 			</div>
+			<div class="form-group">
+				<form:label for="price" path="price" class="form-label">Total Price:</form:label>
+				<form:input type="text" name="price" path="price" class="form-control" />
+				<form:errors path="price" class="text-danger" />
+			</div>
 			<input type="submit" class="btn btn-outline-dark mt-3" value="Request Reservation" />
 		</form:form>
 	</div>
 	</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+	<script src="/js/script.js"></script>
 </body>
 </html>
