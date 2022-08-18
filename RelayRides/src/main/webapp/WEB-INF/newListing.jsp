@@ -23,7 +23,7 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
 			<div class="container-fluid">
-				<a class="h1" href="/landing">RelayRides</a>
+				<a class="h1" href="/dashboard">RelayRides</a>
 			</div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
@@ -31,10 +31,10 @@
 						<a class="nav-link active" href="">Browse Rentals</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="">Dashboard</a>
+						<a class="nav-link active" href="/dashboard">Dashboard</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="">My Profile</a>
+						<a class="nav-link active" href="/profile">My Profile</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" href="/logout">Logout</a>

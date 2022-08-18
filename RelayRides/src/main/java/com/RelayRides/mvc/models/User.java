@@ -41,7 +41,7 @@ public class User {
     private String email;
 	
     @NotEmpty(message="password is required!")
-    @Size(min=8, max=20, message="password must be between 8 and 20 characters")
+    @Size(min=8, max=128, message="password must be between 8 and 20 characters")
     private String password;
 	
 	@Transient
@@ -49,6 +49,16 @@ public class User {
     @Size(min=8, max=128, message="confirm password must be between 8 and 128 characters")
 	private String confirmPW;
 	
+	@NotEmpty(message = "Enter a bio")
+	@Size(min=1, max=200, message="enter between 1 and 200 characters")
+	private String myBio;
+	
+	public User(@NotEmpty(message = "Enter a bio") @Size(min = 1, max = 200) String myBio) {
+		this.myBio = myBio;
+	}
+
+
+
 	private Date created_at;
 	private Date updated_at;
 	
@@ -155,6 +165,13 @@ public class User {
 
 	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
+	}
+	public String getMyBio() {
+		return myBio;
+	}
+
+	public void setMyBio(String myBio) {
+		this.myBio = myBio;
 	}
 	
 	

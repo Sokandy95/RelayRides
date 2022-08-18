@@ -196,10 +196,23 @@ public class MainController {
     	return "redirect:/dashboard";
     }
     
-    @DeleteMapping("/listing/delete/{id}")
+    @GetMapping("/listing/delete/{id}")
     public String deleteListing(@PathVariable("id") Long id) {
         listingService.deleteListing(id);
         return "redirect:/dashboard";
     }
-	
+	@GetMapping("/profile")
+	public String profile(HttpSession session, Model model){
+		User user = userService.findById((Long)session.getAttribute("userId"));
+    	model.addAttribute("updateUser", user);
+		
+		return "profile.jsp";
+	}
+	@PostMapping("/profile")
+	public String upProfile(HttpSession session, @RequestParam("username")String username, @RequestParam("myBio")String myBio) {
+		User user = userService.findById((Long)session.getAttribute("userId"));
+		userService.updateProfile(user, username, myBio);
+		return "redirect:/dashboard";
+		
+	}
 }
