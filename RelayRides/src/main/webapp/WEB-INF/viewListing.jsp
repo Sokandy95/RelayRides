@@ -21,7 +21,7 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
 			<div class="container-fluid">
-				<a class="h1" href="/landing">RelayRides</a>
+				<a class="h1" href="/listings">RelayRides</a>
 			</div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
@@ -51,7 +51,7 @@
 			</div>
 			<div class="row">
 				<div class="col-3">
-					<img src="${listing.imageUrl }'" alt="${listing.imageUrl }" class="img-fluid" />
+					<img src="${listing.imageUrl }" alt="${listing.imageUrl }" class="img-fluid" />
 				</div>
 				<div class="col">
 					<p>Make/Model: <c:out value="${listing.title }"></c:out></p>
@@ -59,7 +59,7 @@
 					<p>Rate: <c:out value="${listing.rate }"></c:out></p>
 					<p>Seats: <c:out value="${listing.seats }"></c:out></p>
 					<p>Description: <c:out value="${listing.description }"></c:out></p>
-					<a class="btn btn-outline-dark" href="/listing/reserve/${listing.id }">Reserve Now!</a>
+					<a class="btn btn-outline-dark" href="/listing/reserve/${listing.id }">Book Now!</a>
 				</div>
 			</div>
 			
