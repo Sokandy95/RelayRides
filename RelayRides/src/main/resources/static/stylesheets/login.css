@@ -1,7 +1,8 @@
 body {
-	background-image: url('pics/rideShare.png');
+	background-image: url('pics/purpleRideShare.png');
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: cover;
+	background-position: center;
 }
 .btn-primary {
 	background-color: #f53163;
