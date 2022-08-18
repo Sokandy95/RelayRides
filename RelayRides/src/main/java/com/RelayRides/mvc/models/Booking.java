@@ -26,7 +26,14 @@ public class Booking {
 
 	@NotEmpty(message = "Please enter an end date for your booking.")
 	private Date end_date;
+<<<<<<< Updated upstream
 
+=======
+	
+	private int numDays;
+	private float price;
+	
+>>>>>>> Stashed changes
 	private String formattedStartDate;
 	private String formattedEndDate;
 
@@ -76,6 +83,22 @@ public class Booking {
 
 	public void setEnd_date(Date end_date) {
 		this.end_date = end_date;
+	}
+
+	public int getNumDays() {
+		return numDays;
+	}
+
+	public void setNumDays(int numDays) {
+		this.numDays = numDays;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public String getFormattedStartDate() {

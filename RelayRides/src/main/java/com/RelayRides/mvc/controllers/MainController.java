@@ -22,6 +22,7 @@ import com.RelayRides.mvc.services.BookingService;
 import com.RelayRides.mvc.services.FileService;
 import com.RelayRides.mvc.services.ListingService;
 import com.RelayRides.mvc.services.UserService;
+import com.RelayRides.mvc.models.Booking;
 import com.RelayRides.mvc.models.Listing;
 import com.RelayRides.mvc.models.LoginUser;
 import com.RelayRides.mvc.models.User;
@@ -210,7 +211,7 @@ public class MainController {
     }
     
     @GetMapping("/listing/edit/{id}")
-    public String editGalleryPiece(Model model, @PathVariable("id") Long id, HttpSession session) {
+    public String editListing(Model model, @PathVariable("id") Long id, HttpSession session) {
     	if(session.getAttribute("userId") == null) {
     		return "redirect:/";
     	}
@@ -276,4 +277,24 @@ public class MainController {
     	Listing listing = listingService.findById(id);
     	
     	return "viewListing.jsp";
+<<<<<<< Updated upstream
 	}
+=======
+    }
+    
+    @GetMapping("/listing/reserve/{id}")
+    public String makeReservation(HttpSession session, Model model, @PathVariable("id") Long id, @ModelAttribute("booking") Booking booking) {
+    	
+    	if(session.getAttribute("userId") == null) {
+    		return "redirect:/logout";
+    	}
+
+    	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
+    	model.addAttribute("listing", listingService.findById(id));
+
+    	
+    	return "newReservation.jsp";
+    }
+	
+}
+>>>>>>> Stashed changes
