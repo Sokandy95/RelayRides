@@ -15,27 +15,54 @@
 <title>RelayRides</title>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- for your local CSS -->
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.scss">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
 			<div class="container-fluid">
-				<a class="h1" href="/landing">RelayRides</a>
+				<a class="h1 text-white text-decoration-none siteTitle" href="/landing">
+					<span> 
+						<i class="fa fa-car h1 me-2"  style ="color: #fc46be"></i>
+					</span>
+					RelayRides
+				</a>
 			</div>
+			<div></div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link active" href="">Browse Rentals</a>
+					<li class="nav-item mt-2">
+						<a class="nav-link active text-white browseLink" href="">
+							<span>
+								<i class="fa fa-car-on logo" style ="color: #fc46be"></i>
+							</span>
+							Browse Rentals</a>
+					</li>
+					<li class="nav-item mt-2">
+						<a class="nav-link active text-white headLink" href="">
+							<span>
+								<i class="fa fa-table-columns" style ="color: #fc46be"></i>
+							</span>
+							Dashboard</a>
+					</li>
+					<li class="nav-item mt-2">
+						<a class="nav-link active text-white headLink" href="">
+							<span>
+								<i class="fa fa-user-circle me-1" style ="color: #fc46be"></i>
+							</span>
+							My Profile</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="">Dashboard</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="">My Profile</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="/logout">Logout</a>
+						<a class="btn btn-secondary" href="/logout">
+							Logout</a>
 					</li>
 					<li class="nav-item">
 						<img src="" alt="" />
@@ -45,9 +72,9 @@
 		</nav>
 	</div>
 	<div class="container">
-		<h1 class="mb-5">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
+		<h1 class="mb-5 head">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
 		<div class="container bg-light mb-5">
-			<h3>My Renter Dashboard</h3>
+			<h3 class='head pt-3 pb-1'>My Renter Dashboard</h3>
 			<a class="btn btn-outline-dark" href="">Browse Available Rentals</a>
 			<table class="table text-nowrap" id="tbl">
 				<thead>
@@ -79,7 +106,7 @@
 			</table>
 		</div>
 				<div class="container bg-light mb-5">
-			<h3>My Owner Dashboard</h3>
+			<h3 class='head pt-3 pb-1'>My Owner Dashboard</h3>
 			<a class="btn btn-outline-dark" href="/listing/new">List a New Car</a>
 			<h5>My Cars</h5>
 			<table class="table text-nowrap" id="tbl">
@@ -139,6 +166,7 @@
 			</table>
 		</div>
 	</div>
+		<script src="https://kit.fontawesome.com/3e736bf66d.js" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

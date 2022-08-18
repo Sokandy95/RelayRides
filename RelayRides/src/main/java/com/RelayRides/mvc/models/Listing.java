@@ -23,51 +23,53 @@ public class Listing {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotEmpty(message = "Make/Model is required!")
 	@Size(min = 5, max = 20, message = "Make/Model must be between 5-20 characters long!")
 	private String model;
-	
+
 	@NotEmpty(message = "Listing title is required!")
 	@Size(min = 5, max = 128, message = "Listing Title must be between 5-128 characters long!")
 	private String title;
-	
+
 	@NotEmpty(message = "Location is required!")
 	@Size(min = 5, max = 30, message = "Location must be between 5-30 characters long!")
 	private String location;
-	
+
 	@NotNull(message = "Please enter the daily rate!")
 	private Float rate;
-	
+
 	@NotNull(message = "Please enter how many seats your vehicle has!")
 	private Integer seats;
-	
+
 	private Boolean on_market = true;
-	
+
 	@NotEmpty(message = "Description is required!")
-	@Size(min=10, max=300, message = "Description must be between 10-300 characters long!")
+	@Size(min = 10, max = 300, message = "Description must be between 10-300 characters long!")
 	private String description;
-	
+
 	// stores URL of image upload
 	private String imageUrl;
-	
+
 	private Date created_at;
 	private Date updated_at;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-	
-	public Listing() {}
 
-    @PrePersist
-    protected void onCreate(){
-        this.created_at = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updated_at = new Date();
-    }
+	public Listing() {
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		this.created_at = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updated_at = new Date();
+	}
 
 	public Long getId() {
 		return id;
@@ -164,6 +166,5 @@ public class Listing {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
+
 }

@@ -23,51 +23,53 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotEmpty(message = "Username is required!")
 	@Size(min = 6, max = 30, message = "Username must be between 6-30 characters long!")
 	private String username;
-	
+
 	@NotEmpty(message = "First name is required!")
 	@Size(min = 2, max = 20, message = "First name must be between 2-20 characters long!")
 	private String first_name;
-	
+
 	@NotEmpty(message = "Last name is required!")
-	@Size(min = 2, max = 20, message = "Last name must be between 2-20 characters long!")
+	@Size(min = 2, max = 128, message = "Last name must be between 2-20 characters long!")
 	private String last_name;
 
-	@NotEmpty(message="Email is required!")
-    @Email(message="Please enter a valid email.")
-    private String email;
-	
-    @NotEmpty(message="password is required!")
-    @Size(min=8, max=20, message="password must be between 8 and 20 characters")
-    private String password;
-	
+	@NotEmpty(message = "Email is required!")
+	@Email(message = "Please enter a valid email.")
+	private String email;
+
+	@NotEmpty(message = "password is required!")
+	@Size(min = 8, max = 128, message = "password must be between 8 and 20 characters")
+	private String password;
+
 	@Transient
 	@NotEmpty(message = "Confirm password is required!")
-    @Size(min=8, max=128, message="confirm password must be between 8 and 128 characters")
+	@Size(min = 8, max = 128, message = "confirm password must be between 8 and 128 characters")
 	private String confirmPW;
-	
+
 	private Date created_at;
 	private Date updated_at;
-	
+
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Listing> listings;
-	
+
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Booking> bookings;
-	
-	public User() {}
 
-    @PrePersist
-    protected void onCreate(){
-        this.created_at = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updated_at = new Date();
-    }
+	public User() {
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		this.created_at = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updated_at = new Date();
+	}
 
 	public Long getId() {
 		return id;
@@ -100,8 +102,8 @@ public class User {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	
-    public String getEmail() {
+
+	public String getEmail() {
 		return email;
 	}
 
@@ -156,6 +158,5 @@ public class User {
 	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
 	}
-	
-	
+
 }

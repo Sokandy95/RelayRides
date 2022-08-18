@@ -8,20 +8,19 @@ import org.springframework.boot.CommandLineRunner;
 
 import com.RelayRides.mvc.services.FileService;
 
-
 @SpringBootApplication
 public class RelayRidesApplication implements CommandLineRunner {
-	
+
 	@Resource
 	FileService fileService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RelayRidesApplication.class, args);
 	}
-	
+
 	// implemented from commandlinerunner
 	@Override
-	public void run(String...arg) throws Exception {
+	public void run(String... arg) throws Exception {
 		this.fileService.init();
 	}
 
