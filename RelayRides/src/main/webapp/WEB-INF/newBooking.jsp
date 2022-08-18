@@ -76,6 +76,11 @@
 				<form:input type="date" name="end_date" path="end_date" class="form-control" />
 				<form:errors path="end_date" class="text-danger" />
 			</div>
+			<div class="form-group">
+				<form:label for="numDays" path="numDays" class="form-label">Number of Days:</form:label>
+				<form:input type="number" name="numDays" path="numDays" class="form-control" min="1" max="30" />
+				<form:errors path="numDays" class="text-danger" />
+			</div>
 			<input type="submit" class="btn btn-outline-dark mt-3" value="Request Reservation" />
 		</form:form>
 	</div>
