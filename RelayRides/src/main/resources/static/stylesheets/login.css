@@ -1,0 +1,47 @@
+body {
+	background-image: url('pics/purpleRideShare.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.btn-primary {
+	background-color: #f53163;
+	border: #f53163 1px solid;
+}
+.siteTitle {
+	font-family: 'Barlow Condensed', sans-serif;
+	font-weight: 900;
+}
+.btn-secondary {
+	background-color:  #fc46be;
+}
+.btn:hover {
+	background-color: white;
+	color: #f53163;
+	border: 1px solid #f53163;
+}
+
+.head {
+	color: #fc46be;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.body-container {
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	opacity: 90%;
+}
+.nav-link {
+	color: white;
+}
+a {
+	display: flex;
+}
+
+.headLink {
+	width: 125px;
+	padding: 0px;
+}
+.browseLink {
+	width: 150px;
+	padding: 0px
+}

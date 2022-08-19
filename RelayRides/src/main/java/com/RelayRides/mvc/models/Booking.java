@@ -20,37 +20,42 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotEmpty(message = "Please enter a start date for your booking.")
 	private Date start_date;
-	
+
 	@NotEmpty(message = "Please enter an end date for your booking.")
 	private Date end_date;
 	
+	private int numDays;
+	private float price;
+	
 	private String formattedStartDate;
 	private String formattedEndDate;
-	
+
 	private Date created_at;
 	private Date updated_at;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "listing_id")
 	private Listing listing;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-	
-	public Booking() {}
 
-    @PrePersist
-    protected void onCreate(){
-        this.created_at = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updated_at = new Date();
-    }
+	public Booking() {
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		this.created_at = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updated_at = new Date();
+	}
 
 	public Long getId() {
 		return id;
@@ -74,6 +79,22 @@ public class Booking {
 
 	public void setEnd_date(Date end_date) {
 		this.end_date = end_date;
+	}
+
+	public int getNumDays() {
+		return numDays;
+	}
+
+	public void setNumDays(int numDays) {
+		this.numDays = numDays;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public String getFormattedStartDate() {
@@ -123,6 +144,5 @@ public class Booking {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
+
 }

@@ -15,27 +15,76 @@
 <title>RelayRides</title>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- for your local CSS -->
+<!-- local CSS -->
 <link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.scss">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+<style type="text/css">
+	.table1:not(.NonOpaque){
+        opacity:0.90;
+    }
+    .table2:not(.NonOpaque){
+        opacity:0.90;
+    }
+</style>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
+		<nav class="navbar navbar-expand-lg mb-5 border-bottom bg-dark opacity-75">
 			<div class="container-fluid">
+<<<<<<< HEAD
 				<a class="h1" href="/dashboard">RelayRides</a>
+=======
+				<a class="h1 text-white text-decoration-none siteTitle" href="/landing">
+					<span> 
+						<i class="fa-solid fa-car h1 me-2"  style ="color: #fc46be"></i>
+					</span>
+					RelayRides
+				</a>
+>>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 			</div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link active" href="/listings">Browse Rentals</a>
+
+					<li class="nav-item mt-2">
+						<a class="nav-link active text-white browseLink" href="">
+							<span>
+								<i class="fa fa-car-on logo" style ="color: #fc46be"></i>
+							</span>
+							Browse Rentals</a>
 					</li>
+<<<<<<< HEAD
 					<li class="nav-item">
 						<a class="nav-link active" href="/dashboard">Dashboard</a>
+=======
+					<li class="nav-item mt-2">
+						<a class="nav-link active text-white headLink" href="">
+							<span>
+								<i class="fa fa-table-columns" style ="color: #fc46be"></i>
+							</span>
+							Dashboard</a>
+>>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 					</li>
+					<li class="nav-item mt-2">
+						<a class="nav-link active text-white headLink" href="">
+							<span>
+								<i class="fa fa-user-circle me-1" style ="color: #fc46be"></i>
+							</span>
+							My Profile</a>
 					<li class="nav-item">
+<<<<<<< HEAD
 						<a class="nav-link active" href="/profile">My Profile</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" href="/logout">Logout</a>
+=======
+						<a class="btn btn-secondary me-2" href="/logout">
+							Logout</a>
+>>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 					</li>
 					<li class="nav-item">
 						<img src="" alt="" />
@@ -44,13 +93,13 @@
 			</div>
 		</nav>
 	</div>
-	<div class="container">
-		<h1 class="mb-5">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
-		<div class="container bg-light mb-5">
-			<h3>My Renter Dashboard</h3>
-			<a class="btn btn-outline-dark" href="/listings">Browse Available Rentals</a>
+	<div class="container ">
+		<h1 class="mb-5 text-white head">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
+		<div class="container bg-dark mb-5 body-container table1">
+			<h3 class='head pt-3 pb-1'>My Renter Dashboard</h3>
+			<a class="btn btn-secondary mb-3" href="">Browse Available Rentals</a>
 			<table class="table text-nowrap" id="tbl">
-				<thead>
+				<thead class="NonOpaque">
 				<tr>
 					<th scope="col">Thumbnail</th>
 					<th scope="col">Location</th>
@@ -78,12 +127,12 @@
 				</tbody>
 			</table>
 		</div>
-				<div class="container bg-light mb-5">
-			<h3>My Owner Dashboard</h3>
-			<a class="btn btn-outline-dark" href="/listing/new">List a New Car</a>
-			<h5>My Cars</h5>
+			<div class="container bg-dark mb-5 body-container table2">
+			<h3 class='head pt-3 pb-1'>My Owner Dashboard</h3>
+			<a class="btn btn-secondary mb-2" href="/listing/new">List a New Car</a>
+			<h5 class="text-white mt-3">My Cars</h5>
 			<table class="table text-nowrap" id="tbl">
-				<thead>
+				<thead class="NonOpaque">
 				<tr>
 					<th scope="col">Thumbnail</th>
 					<th scope="col">Listing Title</th>
@@ -115,7 +164,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<h5>Customer Reservations/Requests</h5>
+			<h5 class='text-white mt-3'>Customer Reservations/Requests</h5>
 			<table class="table text-nowrap" id="tbl">
 				<thead>
 				<tr>
@@ -147,6 +196,7 @@
 			</table>
 		</div>
 	</div>
+		<script src="https://kit.fontawesome.com/3e736bf66d.js" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
