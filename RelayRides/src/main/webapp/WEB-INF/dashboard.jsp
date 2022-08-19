@@ -137,11 +137,8 @@
 
 								<a class="btn btn-secondary me-2" href="/listing/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
 								<a class="btn btn-secondary me-2" href="/listing/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
-
-						
 								<form:form class="d-inline" action="/listing/delete/${listing.id}" method="post">
 									<input type="hidden" name="_method" value="delete">
-									
 								</form:form>
 
 							</td>
@@ -172,8 +169,8 @@
 							<td><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
 							<td><c:out value="${booking.getStatus()}"></c:out></td>
 							<td>
-								<a class="btn btn-secondary me-2" href="/edit/<c:out value="${booking.getId()}"></c:out>">Approve</a>
-								<a class="btn btn-secondary me-2" href="/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
+								<a class="btn btn-secondary me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit/Approve</a>
+								<a class="btn btn-secondary me-2" href="/listing/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
 							</td>
 						</tr>
 					</c:forEach>

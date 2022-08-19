@@ -304,6 +304,30 @@ public class MainController {
     	
     	return "redirect:/dashboard";
     }
+    
+	@GetMapping("/booking/edit/{id}")
+	public String editBooking(Model model, @PathVariable("id") Long bookingId, HttpSession session) {
+		if (session.getAttribute("userId") == null) {
+			return "redirect:/";
+		}
+
+		Booking booking = bookingService.findById(bookingId);
+		model.addAttribute("booking", booking);
+
+		return "editBooking.jsp";
+	}
+    
+    @PutMapping("/booking/edit/{id}")
+    public String updateBooking(
+    		@Valid @ModelAttribute("booking") Booking booking, 
+    		BindingResult result,
+    		Model model) {
+    	
+    	System.out.println("new booking status: " + booking.getStatus());
+    	
+    	bookingService.updateBooking(booking);
+    	return "redirect:/dashboard";
+    }
 	
 
 }

@@ -83,8 +83,8 @@
 		<h1 class="mb-3 head">Edit Listing</h1>
 		<form:form action="/listing/edit/${listing.id}" method="POST" modelAttribute="listing" enctype="multipart/form-data">
 			<input type="hidden" name="_method" value="put" />
-						<form:input type="hidden" path="imageUrl" value="${galleryPiece.imageUrl}" />
-			<input type="hidden" path="user" value="${user.id}" />
+			<form:input type="hidden" path="imageUrl" value="${galleryPiece.imageUrl}" />
+			<form:input type="hidden" path="user" value="${listing.user.id}" />
 			<div class="form-group">
 				<form:label for="title" path="title" class="form-label">Listing Title:</form:label>
 				<form:input name="title" path="title" class="form-control"/>

@@ -33,9 +33,9 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom bg-dark opacity-75">
 			<div class="container-fluid">
-				<a class="h1 text-white text-decoration-none siteTitle" href="/landing">
+				<a class="h1 text-white text-decoration-none siteTitle" href="/listings">
 					<span> 
-						<i class="fa fa-car h1 me-2"  style ="color: #fc46be"></i>
+						<i class="fa-solid fa-car h1 me-2"  style ="color: #fc46be"></i>
 					</span>
 					RelayRides
 				</a>
@@ -44,34 +44,26 @@
 				<ul class="navbar-nav">
 
 					<li class="nav-item mt-2">
-						<a class="nav-link active text-white browseLink" href="">
+						<a class="nav-link active text-white browseLink" href="/listings">
 							<span>
 								<i class="fa fa-car-on logo" style ="color: #fc46be"></i>
 							</span>
 							Browse Rentals</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="/dashboard">Dashboard</a>
-=======
 					<li class="nav-item mt-2">
-						<a class="nav-link active text-white headLink" href="">
+						<a class="nav-link active text-white headLink" href="/dashboard">
 							<span>
 								<i class="fa fa-table-columns" style ="color: #fc46be"></i>
 							</span>
-							Dashboard</a>
+						Dashboard</a>
 					</li>
 					<li class="nav-item mt-2">
-						<a class="nav-link active text-white headLink" href="">
+						<a class="nav-link active text-white headLink" href="/profile">
 							<span>
 								<i class="fa fa-user-circle me-1" style ="color: #fc46be"></i>
 							</span>
 							My Profile</a>
 					<li class="nav-item">
-						<a class="nav-link active" href="/profile">My Profile</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="/logout">Logout</a>
-=======
 						<a class="btn btn-secondary me-2" href="/logout">
 							Logout</a>
 					</li>
@@ -87,7 +79,7 @@
 	<div class="col-xs-12 col-md-6 bg-light px-5 py-3 rounded listingForm">
 		<h1 class="mb-3 head">Create New Listing</h1>
 		<form:form action="/listing/create" method="POST" modelAttribute="listing" enctype="multipart/form-data">
-			<input type="hidden" path="user" value="${user.id}" />
+			<form:input type="hidden" path="user" value="${user.id}" />
 			<div class="form-group">
 				<form:label for="title" path="title" class="form-label">Listing Title:</form:label>
 				<form:input name="title" path="title" class="form-control"/>
