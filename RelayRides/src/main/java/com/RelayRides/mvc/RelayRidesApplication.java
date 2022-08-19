@@ -19,7 +19,7 @@ public class RelayRidesApplication implements CommandLineRunner {
 		SpringApplication.run(RelayRidesApplication.class, args);
 	}
 	
-	// implemented from commandlinerunner
+
 	@Override
 	public void run(String...arg) throws Exception {
 		this.fileService.init();

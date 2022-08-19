@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.RelayRides.mvc.services.BookingService;
 import com.RelayRides.mvc.services.FileService;
 import com.RelayRides.mvc.services.ListingService;
@@ -201,18 +199,58 @@ public class MainController {
         listingService.deleteListing(id);
         return "redirect:/dashboard";
     }
+
 	@GetMapping("/profile")
 	public String profile(HttpSession session, Model model){
 		User user = userService.findById((Long)session.getAttribute("userId"));
     	model.addAttribute("updateUser", user);
+    	
 		
 		return "profile.jsp";
 	}
 	@PostMapping("/profile")
-	public String upProfile(HttpSession session, @RequestParam("username")String username, @RequestParam("myBio")String myBio) {
+	public String upProfile(HttpSession session, 
+			@RequestParam("username")String username,
+			@RequestParam("myBio")String myBio, @RequestParam("file") MultipartFile file) {
 		User user = userService.findById((Long)session.getAttribute("userId"));
+		if( !file.isEmpty()) {
+    		this.fileService.save(file);
+    		user.setImageUrl("uploads/" + file.getOriginalFilename());
+        	System.out.println("New URL: " + user.getImageUrl());
+    	}
 		userService.updateProfile(user, username, myBio);
+		
+		
 		return "redirect:/dashboard";
 		
 	}
+
+    @GetMapping("/listings")
+    public String browseRentals(HttpSession session, Model model) {
+    	
+    	if(session.getAttribute("userId") == null) {
+    		return "redirect:/logout";
+    	}
+
+    	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
+    	model.addAttribute("listings", listingService.getAllListings());
+    	
+    	return "browseListings.jsp";
+    }
+    
+    @GetMapping("/listing/{id}")
+    public String viewRental(HttpSession session, Model model, @PathVariable("id") Long id) {
+    	
+    	if(session.getAttribute("userId") == null) {
+    		return "redirect:/logout";
+    	}
+
+    	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
+    	model.addAttribute("listing", listingService.findById(id));
+    	Listing listing = listingService.findById(id);
+    	
+    	return "viewListing.jsp";
+    }
+	
+
 }

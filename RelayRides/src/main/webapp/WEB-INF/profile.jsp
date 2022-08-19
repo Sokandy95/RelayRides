@@ -50,11 +50,12 @@
 	</div>
 	<div>
 		<h1>My Profile</h1>
-		<h3>!!! enter image here!!!!! complete!!!</h3>
 
-		<form action="/profile" method="post">
+		<img src="<c:out value="${updateUser.getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" />
+
+		<form action="/profile" enctype="multipart/form-data" method="post">
 			<div>
-				<label> Picture: </label>
+				<label for="image" path="imageUrl" class="form-label">Image:</label>
 				<input type="file" name="file" class="form-control" accept=".jpg, .jpeg, .png" />
 		
 			</div>

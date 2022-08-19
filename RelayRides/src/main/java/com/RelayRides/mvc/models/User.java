@@ -57,7 +57,16 @@ public class User {
 		this.myBio = myBio;
 	}
 
+	private String imageUrl;
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
 	private Date created_at;
 	private Date updated_at;
@@ -69,6 +78,7 @@ public class User {
 	private List<Booking> bookings;
 	
 	public User() {}
+	
 
     @PrePersist
     protected void onCreate(){

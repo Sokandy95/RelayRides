@@ -31,10 +31,10 @@
 						<a class="nav-link active" href="">Browse Rentals</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="">Dashboard</a>
+						<a class="nav-link active" href="/dashboard">Dashboard</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="">My Profile</a>
+						<a class="nav-link active" href="/profile">My Profile</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" href="/logout">Logout</a>
@@ -49,8 +49,10 @@
 	<div class="container">
 	<div class="row d-flex justify-content-center">
 	<div class="col-xs-12 col-md-6 bg-light px-5 py-3">
-		<h1 class="mb-3">Create New Listing</h1>
-		<form:form action="/listing/create" method="POST" modelAttribute="listing" enctype="multipart/form-data">
+		<h1 class="mb-3">Edit Listing</h1>
+		<form:form action="/listing/edit/${listing.id}" method="POST" modelAttribute="listing" enctype="multipart/form-data">
+			<input type="hidden" name="_method" value="put" />
+						<form:input type="hidden" path="imageUrl" value="${galleryPiece.imageUrl}" />
 			<input type="hidden" path="user" value="${user.id}" />
 			<div class="form-group">
 				<form:label for="title" path="title" class="form-label">Listing Title:</form:label>
@@ -87,7 +89,7 @@
 				<input type="file" name="file" class="form-control" accept=".jpg, .jpeg, .png" />
 				<form:errors path="imageUrl" class="text-danger" />
 			</div>
-			<input type="submit" class="btn btn-outline-dark mt-3" value="Create Listing" />
+			<input type="submit" class="btn btn-outline-dark mt-3" value="Edit Listing" />
 		</form:form>
 	</div>
 	</div>
