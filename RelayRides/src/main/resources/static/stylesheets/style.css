@@ -19,10 +19,6 @@
 	color: #fc46be;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
-body {
-	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%,
-		rgba(121, 9, 50, 1) 75%, rgba(108, 9, 121, 1) 99%);
-}
 
 .body-container {
 	font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -41,4 +37,14 @@ a {
 .browseLink {
 	width: 150px;
 	padding: 0px
+}
+
+thead {
+	background-color:  rgba(108, 9, 121, 1);
+}
+th {
+	border: white solid 1px;
+	color: white;
+	text-align: center;
+	opacity: none;
 }

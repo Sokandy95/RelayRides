@@ -20,14 +20,22 @@
 <!-- for your local CSS -->
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.scss">
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/dashboard.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+<style type="text/css">
+	.table1:not(.NonOpaque){
+        opacity:0.90;
+    }
+    .table2:not(.NonOpaque){
+        opacity:0.90;
+    }
+</style>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
+		<nav class="navbar navbar-expand-lg mb-5 border-bottom bg-dark opacity-75">
 			<div class="container-fluid">
 				<a class="h1 text-white text-decoration-none siteTitle" href="/landing">
 					<span> 
@@ -36,7 +44,6 @@
 					RelayRides
 				</a>
 			</div>
-			<div></div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
 
@@ -61,7 +68,7 @@
 							</span>
 							My Profile</a>
 					<li class="nav-item">
-						<a class="btn btn-secondary" href="/logout">
+						<a class="btn btn-secondary me-2" href="/logout">
 							Logout</a>
 					</li>
 					<li class="nav-item">
@@ -71,16 +78,13 @@
 			</div>
 		</nav>
 	</div>
-	<div class="container">
-		<h1 class="mb-5 head">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
-		<div class="container bg-light mb-5">
+	<div class="container ">
+		<h1 class="mb-5 text-white head">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
+		<div class="container bg-dark mb-5 body-container table1">
 			<h3 class='head pt-3 pb-1'>My Renter Dashboard</h3>
-			<a class="btn btn-outline-dark" href="">Browse Available Rentals</a>
-			<h3>My Renter Dashboard</h3>
-			<a class="btn btn-outline-dark" href="/listings">
-				Browse Available Rentals</a>
+			<a class="btn btn-secondary mb-3" href="">Browse Available Rentals</a>
 			<table class="table text-nowrap" id="tbl">
-				<thead>
+				<thead class="NonOpaque">
 				<tr>
 					<th scope="col">Thumbnail</th>
 					<th scope="col">Location</th>
@@ -108,12 +112,12 @@
 				</tbody>
 			</table>
 		</div>
-				<div class="container bg-light mb-5">
+			<div class="container bg-dark mb-5 body-container table2">
 			<h3 class='head pt-3 pb-1'>My Owner Dashboard</h3>
-			<a class="btn btn-outline-dark" href="/listing/new">List a New Car</a>
-			<h5>My Cars</h5>
+			<a class="btn btn-secondary mb-2" href="/listing/new">List a New Car</a>
+			<h5 class="text-white mt-3">My Cars</h5>
 			<table class="table text-nowrap" id="tbl">
-				<thead>
+				<thead class="NonOpaque">
 				<tr>
 					<th scope="col">Thumbnail</th>
 					<th scope="col">Listing Title</th>
@@ -140,7 +144,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<h5>Customer Reservations/Requests</h5>
+			<h5 class='text-white mt-3'>Customer Reservations/Requests</h5>
 			<table class="table text-nowrap" id="tbl">
 				<thead>
 				<tr>
