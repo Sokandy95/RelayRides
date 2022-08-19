@@ -328,6 +328,12 @@ public class MainController {
     	bookingService.updateBooking(booking);
     	return "redirect:/dashboard";
     }
+    
+    @GetMapping("/booking/delete/{id}")
+    public String deleteBooking(@PathVariable("id") Long id) {
+        bookingService.deleteBooking(id);
+        return "redirect:/dashboard";
+    }
 	
 
 }

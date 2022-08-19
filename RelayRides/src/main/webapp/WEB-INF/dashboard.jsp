@@ -105,7 +105,7 @@
 							<td><c:out value="${listing.getStatus()}"></c:out></td>
 							<td>
 								<a class="btn btn-secondary me-2" href="/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
-								<a class="btn btn-secondary me-2" href="/delete/<c:out value="${booking.getId()}"></c:out>">Delete</a>
+								<a class="btn btn-secondary me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Cancel</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -170,7 +170,7 @@
 							<td><c:out value="${booking.getStatus()}"></c:out></td>
 							<td>
 								<a class="btn btn-secondary me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit/Approve</a>
-								<a class="btn btn-secondary me-2" href="/listing/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
+								<a class="btn btn-secondary me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
 							</td>
 						</tr>
 					</c:forEach>
