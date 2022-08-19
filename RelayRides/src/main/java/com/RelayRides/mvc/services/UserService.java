@@ -90,15 +90,11 @@ public class UserService {
 			userRepository.deleteById(id);
 		}
 	}
-<<<<<<< HEAD
+	
 	public User updateProfile(User user, String username, String myBio) {
 		user.setUsername(username);
 		user.setMyBio(myBio);
 		user.setConfirmPW("helloWorld");
 		return userRepository.save(user);
 	}
-	
-=======
-
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 }

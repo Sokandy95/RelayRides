@@ -224,19 +224,6 @@ public class MainController {
 		
 	}
 
-
-
-		// booking.setFormattedStartDate(outputFormatter.format(booking.getCreatedOn()));
-		// booking.setFormattedStartDate(outputFormatter.format(booking.getCreatedOn()));
-		// System.out.println("Simple date: " + listing.getSimpleDate());
-
-		this.listingService.createListing(listing);
-
-		// redirectAttributes.addFlashAttribute("message", "gallery piece added");
-
-		return "redirect:/dashboard";
-	}
-
 	@GetMapping("/listing/edit/{id}")
 	public String editListing(Model model, @PathVariable("id") Long id, HttpSession session) {
 		if (session.getAttribute("userId") == null) {
@@ -247,33 +234,6 @@ public class MainController {
 		model.addAttribute("listing", listing);
 
 		return "editListing.jsp";
-	}
-
-	@PutMapping("/listing/edit/{id}")
-	public String updateListing(@Valid @ModelAttribute("listing") Listing listing, BindingResult result, Model model,
-			@RequestParam("file") MultipartFile file) {
-		System.out.println("listing: " + listing.getId());
-
-		if (result.hasErrors()) {
-			return "editListing.jsp";
-		}
-
-		if (!file.isEmpty()) {
-			this.fileService.save(file);
-			listing.setImageUrl("uploads/" + file.getOriginalFilename());
-			System.out.println("New URL: " + listing.getImageUrl());
-		}
-
-		// listing.setSimpleDate(outputFormatter.format(listing.getCreatedOn()));
-
-		listingService.updateListing(listing);
-		return "redirect:/dashboard";
-	}
-
-	@DeleteMapping("/listing/delete/{id}")
-	public String deleteListing(@PathVariable("id") Long id) {
-		listingService.deleteListing(id);
-		return "redirect:/dashboard";
 	}
     
     @GetMapping("/listings")
