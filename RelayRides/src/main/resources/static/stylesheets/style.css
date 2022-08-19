@@ -1,3 +1,9 @@
+body {
+	background-image: url('pics/rides.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
 .btn-primary {
 	background-color: #f53163;
 	border: #f53163 1px solid;
