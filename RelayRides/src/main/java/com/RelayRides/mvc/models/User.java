@@ -50,10 +50,11 @@ public class User {
 	@NotEmpty(message = "Confirm password is required!")
 	@Size(min = 8, max = 128, message = "confirm password must be between 8 and 128 characters")
 	private String confirmPW;
-
+	
+	// causes problems when validating for initial account creation - I put a space as the default for now
 	@NotEmpty(message = "Enter a bio")
 	@Size(min=1, max=200, message="enter between 1 and 200 characters")
-	private String myBio;
+	private String myBio = " ";
 	
 	public User(@NotEmpty(message = "Enter a bio") @Size(min = 1, max = 200) String myBio) {
 		this.myBio = myBio;

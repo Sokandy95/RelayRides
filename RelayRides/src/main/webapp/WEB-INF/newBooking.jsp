@@ -55,8 +55,8 @@
 		<h1 class="mb-3">Create New Booking</h1>
 		<form>
 			<div class="form-group">
-				<label for="start_date" class="form-label">Listing Title:</label>
-				<input name="start_date" class="form-control" placeholder="${listing.title}" readonly />
+				<label for="title" class="form-label">Listing Title:</label>
+				<input name="title" class="form-control" placeholder="${listing.title}" readonly />
 			</div>
 			<div class="form-group">
 				<label for="rate" class="form-label">Daily Rate:</label>
@@ -65,7 +65,7 @@
 		</form>
 		<form:form action="/booking/create" method="POST" modelAttribute="booking" enctype="multipart/form-data">
 			<input type="hidden" path="user" value="${user.id}" />
-			<input type="hidden" path="listing" value="${listing.id}" />
+			<input type="hidden" path="listing" value="${id}" />
 			<div class="form-group">
 				<form:label for="start_date" path="start_date" class="form-label">Start Date:</form:label>
 				<form:input type="date" name="start_date" path="start_date" class="form-control"/>

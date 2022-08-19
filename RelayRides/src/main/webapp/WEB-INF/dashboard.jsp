@@ -36,55 +36,39 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom bg-dark opacity-75">
 			<div class="container-fluid">
-<<<<<<< HEAD
-				<a class="h1" href="/dashboard">RelayRides</a>
-=======
-				<a class="h1 text-white text-decoration-none siteTitle" href="/landing">
+				<a class="h1 text-white text-decoration-none siteTitle" href="/listings">
 					<span> 
 						<i class="fa-solid fa-car h1 me-2"  style ="color: #fc46be"></i>
 					</span>
 					RelayRides
 				</a>
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 			</div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
 
 					<li class="nav-item mt-2">
-						<a class="nav-link active text-white browseLink" href="">
+						<a class="nav-link active text-white browseLink" href="/listings">
 							<span>
 								<i class="fa fa-car-on logo" style ="color: #fc46be"></i>
 							</span>
 							Browse Rentals</a>
 					</li>
-<<<<<<< HEAD
-					<li class="nav-item">
-						<a class="nav-link active" href="/dashboard">Dashboard</a>
-=======
 					<li class="nav-item mt-2">
-						<a class="nav-link active text-white headLink" href="">
+						<a class="nav-link active text-white headLink" href="/dashboard">
 							<span>
 								<i class="fa fa-table-columns" style ="color: #fc46be"></i>
 							</span>
-							Dashboard</a>
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
+						Dashboard</a>
 					</li>
 					<li class="nav-item mt-2">
-						<a class="nav-link active text-white headLink" href="">
+						<a class="nav-link active text-white headLink" href="/profile">
 							<span>
 								<i class="fa fa-user-circle me-1" style ="color: #fc46be"></i>
 							</span>
 							My Profile</a>
 					<li class="nav-item">
-<<<<<<< HEAD
-						<a class="nav-link active" href="/profile">My Profile</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="/logout">Logout</a>
-=======
 						<a class="btn btn-secondary me-2" href="/logout">
 							Logout</a>
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 					</li>
 					<li class="nav-item">
 						<img src="" alt="" />
@@ -93,12 +77,12 @@
 			</div>
 		</nav>
 	</div>
-	<div class="container ">
+	<div class="container">
 		<h1 class="mb-5 text-white head">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
 		<div class="container bg-dark mb-5 body-container table1">
 			<h3 class='head pt-3 pb-1'>My Renter Dashboard</h3>
-			<a class="btn btn-secondary mb-3" href="">Browse Available Rentals</a>
-			<table class="table text-nowrap" id="tbl">
+			<a class="btn btn-secondary mb-3" href="/listings">Browse Available Rentals</a>
+			<table class="table text-nowrap text-white" id="tbl">
 				<thead class="NonOpaque">
 				<tr>
 					<th scope="col">Thumbnail</th>
@@ -107,6 +91,7 @@
 					<th scope="col">Start Date</th>
 					<th scope="col">End Date</th>
 					<th scope="col">Status</th>
+					<th scope="col">Actions</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -115,12 +100,12 @@
 							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
 							<td><c:out value="${booking.getListing().getLocation()}"></c:out></td>
 							<td><c:out value="${booking.getListing().getModel()}"></c:out></td>
-							<td><c:out value="${booking.getStart_date()}"></c:out></td>
-							<td><c:out value="${booking.getEnd_date()}"></c:out></td>
-							<td><c:out value="${booking.getStatus()}"></c:out></td>
+							<td><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
+							<td><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
+							<td><c:out value="${listing.getStatus()}"></c:out></td>
 							<td>
-								<a class="btn btn-outline-dark" href="/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
-								<a class="btn btn-outline-danger" href="/delete/<c:out value="${booking.getId()}"></c:out>">Delete</a>
+								<a class="btn btn-secondary me-2" href="/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
+								<a class="btn btn-secondary me-2" href="/delete/<c:out value="${booking.getId()}"></c:out>">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -131,7 +116,7 @@
 			<h3 class='head pt-3 pb-1'>My Owner Dashboard</h3>
 			<a class="btn btn-secondary mb-2" href="/listing/new">List a New Car</a>
 			<h5 class="text-white mt-3">My Cars</h5>
-			<table class="table text-nowrap" id="tbl">
+			<table class="table text-nowrap text-white" id="tbl">
 				<thead class="NonOpaque">
 				<tr>
 					<th scope="col">Thumbnail</th>
@@ -150,8 +135,8 @@
 							<td><c:out value="${listing.getDescription()}"></c:out></td>
 							<td>
 
-								<a class="btn btn-outline-dark" href="/listing/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
-								<a class="btn btn-outline-danger" href="/listing/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
+								<a class="btn btn-secondary me-2" href="/listing/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
+								<a class="btn btn-secondary me-2" href="/listing/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
 
 						
 								<form:form class="d-inline" action="/listing/delete/${listing.id}" method="post">
@@ -165,7 +150,7 @@
 				</tbody>
 			</table>
 			<h5 class='text-white mt-3'>Customer Reservations/Requests</h5>
-			<table class="table text-nowrap" id="tbl">
+			<table class="table text-nowrap text-white" id="tbl">
 				<thead>
 				<tr>
 					<th scope="col">Thumbnail</th>
@@ -180,15 +165,15 @@
 				<tbody>
 					<c:forEach var="booking" items="${bookings}">
 						<tr>
-							<td><img src="<c:out value="${booking().getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
-							<td><c:out value="${booking().getUser().getFirst_name}"></c:out> <c:out value="${booking().getUser().getLast_name}"></c:out></td>
-							<td><c:out value="${booking().getListing().getTitle()}"></c:out></td>
-							<td><c:out value="${booking().getListing().getModel()}"></c:out></td>
-							<td><c:out value="${booking.getStart_date}"></c:out></td>
-							<td><c:out value="${booking.getEnd_date}"></c:out></td>
+							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
+							<td><c:out value="${booking.getUser().getFirst_name}"></c:out> <c:out value="${booking.getUser().getLast_name}"></c:out></td>
+							<td><c:out value="${booking.getListing().getTitle()}"></c:out></td>
+							<td><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
+							<td><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
+							<td><c:out value="${booking.getStatus()}"></c:out></td>
 							<td>
-								<a class="btn btn-outline-dark" href="/edit/<c:out value="${booking.getId()}"></c:out>">Approve</a>
-								<a class="btn btn-outline-danger" href="/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
+								<a class="btn btn-secondary me-2" href="/edit/<c:out value="${booking.getId()}"></c:out>">Approve</a>
+								<a class="btn btn-secondary me-2" href="/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
 							</td>
 						</tr>
 					</c:forEach>

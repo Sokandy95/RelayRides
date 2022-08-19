@@ -33,16 +33,12 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom bg-dark opacity-75">
 			<div class="container-fluid">
-<<<<<<< HEAD
-				<a class="h1" href="/dashboard">RelayRides</a>
-=======
 				<a class="h1 text-white text-decoration-none siteTitle" href="/landing">
 					<span> 
 						<i class="fa fa-car h1 me-2"  style ="color: #fc46be"></i>
 					</span>
 					RelayRides
 				</a>
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 			</div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">
@@ -54,7 +50,6 @@
 							</span>
 							Browse Rentals</a>
 					</li>
-<<<<<<< HEAD
 					<li class="nav-item">
 						<a class="nav-link active" href="/dashboard">Dashboard</a>
 =======
@@ -64,7 +59,6 @@
 								<i class="fa fa-table-columns" style ="color: #fc46be"></i>
 							</span>
 							Dashboard</a>
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 					</li>
 					<li class="nav-item mt-2">
 						<a class="nav-link active text-white headLink" href="">
@@ -73,7 +67,6 @@
 							</span>
 							My Profile</a>
 					<li class="nav-item">
-<<<<<<< HEAD
 						<a class="nav-link active" href="/profile">My Profile</a>
 					</li>
 					<li class="nav-item">
@@ -81,7 +74,6 @@
 =======
 						<a class="btn btn-secondary me-2" href="/logout">
 							Logout</a>
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 					</li>
 					<li class="nav-item">
 						<img src="" alt="" />

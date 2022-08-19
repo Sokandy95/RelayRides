@@ -21,11 +21,7 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom">
 			<div class="container-fluid">
-<<<<<<< HEAD
-				<a class="h1" href="/dashboard">RelayRides</a>
-=======
 				<a class="h1" href="/listings">RelayRides</a>
->>>>>>> ff4c55077169841d7210b2ba1626cdfed661ce2c
 			</div>
 			<div class="collapse navbar-collapse d-flex" id="navbarNav">
 				<ul class="navbar-nav">

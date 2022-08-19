@@ -12,7 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "bookings")
@@ -20,11 +24,15 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@NotEmpty(message = "Please enter a start date for your booking.")
+	
+	@FutureOrPresent(message="Please select a date that is not in the past.")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@NotNull(message = "Please enter a start date for your booking.")
 	private Date start_date;
 
-	@NotEmpty(message = "Please enter an end date for your booking.")
+	@FutureOrPresent(message="Please select a date that is not in the past.")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@NotNull(message = "Please enter an end date for your booking.")
 	private Date end_date;
 	
 	private int numDays;
@@ -35,6 +43,8 @@ public class Booking {
 
 	private Date created_at;
 	private Date updated_at;
+	
+	private String status = "pending";
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "listing_id")
@@ -127,6 +137,14 @@ public class Booking {
 
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Listing getListing() {

@@ -40,6 +40,7 @@ public class MainController {
 	@Autowired
 	private FileService fileService;
 
+	//format date for customer view
 	SimpleDateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy");
 
 	@GetMapping("/")
@@ -125,20 +126,31 @@ public class MainController {
 	}
 
 	@GetMapping("/listing/new")
-	public String newListing(Model model, HttpSession session, @ModelAttribute("listing") Listing listing) {
+	public String newListing(
+			Model model, 
+			HttpSession session, 
+			@ModelAttribute("listing") Listing listing
+			) {
 
 		User user = userService.findById((Long) session.getAttribute("userId"));
 		model.addAttribute("user", user);
+		System.out.println("User object: " + user);
+		System.out.println(user.getId());
 
 		return "newListing.jsp";
 	}
 
 	@PostMapping("/listing/create")
-	public String createListing(@Valid @ModelAttribute("listing") Listing listing, BindingResult result,
+	public String createListing(
+			@Valid @ModelAttribute("listing") Listing listing,
+			@ModelAttribute("user") User user,
+			BindingResult result,
 			// RedirectAttributes redirectAttributes,
-			Model model, @RequestParam("file") MultipartFile file) {
+			Model model, 
+			@RequestParam("file") MultipartFile file) {
 
 		if (result.hasErrors()) {
+			model.addAttribute("user", user);
 			model.addAttribute("listing", listing);
 			return "newListing.jsp";
 		}
@@ -155,18 +167,6 @@ public class MainController {
     	//redirectAttributes.addFlashAttribute("message", "gallery piece added");
     	
     	return "redirect:/dashboard";
-    }
-    
-    @GetMapping("/listing/edit/{id}")
-    public String editGalleryPiece(Model model, @PathVariable("id") Long id, HttpSession session) {
-    	if(session.getAttribute("userId") == null) {
-    		return "redirect:/";
-    	}
-    	
-    	Listing listing = listingService.findById(id);
-    	model.addAttribute("listing", listing);
-    	
-    	return "editListing.jsp";
     }
     
     @PutMapping("/listing/edit/{id}")
@@ -255,6 +255,9 @@ public class MainController {
     	if(session.getAttribute("userId") == null) {
     		return "redirect:/logout";
     	}
+    	
+    	System.out.println("listing id: " + id);
+    	System.out.println("userId: " + session.getAttribute("userId"));
 
     	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
     	model.addAttribute("listing", listingService.findById(id));
@@ -275,6 +278,31 @@ public class MainController {
 
     	
     	return "newBooking.jsp";
+    }
+    
+    @PostMapping("/booking/create")
+    public String createBooking(
+    		@Valid @ModelAttribute("booking") Booking booking,
+    		BindingResult result,
+    		//RedirectAttributes redirectAttributes,
+    		Model model) {
+    	
+    	if(result.hasErrors()) {
+    		model.addAttribute("booking", booking);
+    		return "newBooking.jsp";
+    	}
+    	
+    	booking.setFormattedStartDate(outputFormatter.format(booking.getStart_date()));
+    	System.out.println("Simple start date: " + booking.getFormattedStartDate());
+    	
+    	booking.setFormattedEndDate(outputFormatter.format(booking.getEnd_date()));
+    	System.out.println("Simple end date: " + booking.getFormattedEndDate());
+    	
+    	this.bookingService.createBooking(booking);
+    	
+    	//redirectAttributes.addFlashAttribute("message", "gallery piece added");
+    	
+    	return "redirect:/dashboard";
     }
 	
 
