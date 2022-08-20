@@ -1,20 +1,24 @@
 body {
-	background-image: url('pics/rides.png');
+	background-image: url('pics/rides.jpeg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
+
 .btn-primary {
 	background-color: #f53163;
 	border: #f53163 1px solid;
 }
+
 .siteTitle {
 	font-family: 'Barlow Condensed', sans-serif;
 	font-weight: 900;
 }
+
 .btn-secondary {
-	background-color:  #fc46be;
+	background-color: #fc46be;
 }
+
 .btn:hover {
 	background-color: white;
 	color: #f53163;
@@ -24,33 +28,51 @@ body {
 .head {
 	color: #fc46be;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
+	opacity: 80%;
+}
+
+.profileHead {
+	height: 75px;
+	display: flex;
+	align-items: center;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 .body-container {
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
 .nav-link {
 	color: white;
 }
+
 a {
 	display: flex;
+	text-decoration: none;
+	color: white;
 }
 
 .headLink {
 	width: 125px;
 	padding: 0px;
 }
+
 .browseLink {
 	width: 150px;
 	padding: 0px
 }
 
 thead {
-	background-color:  rgba(108, 9, 121, 1);
+	background-color: rgba(108, 9, 121, 1);
 }
+
 th {
 	border: white solid 1px;
 	color: white;
 	text-align: center;
 	opacity: none;
+}
+
+p {
+	margin-bottom: 0;
 }

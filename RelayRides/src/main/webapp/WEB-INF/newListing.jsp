@@ -77,7 +77,7 @@
 	<div class="container">
 	<div class="row d-flex justify-content-center">
 	<div class="col-xs-12 col-md-6 bg-light px-5 py-3 rounded listingForm">
-		<h1 class="mb-3 head">Create New Listing</h1>
+		<h1 class="mb-3 head rounded">Create New Listing</h1>
 		<form:form action="/listing/create" method="POST" modelAttribute="listing" enctype="multipart/form-data">
 			<form:input type="hidden" path="user" value="${user.id}" />
 			<div class="form-group">
