@@ -91,7 +91,7 @@
 			</div>
 			<div class="form-group">
 				<label for="rate" class="form-label">Daily Rate:</label>
-				<input name="rate" class="form-control" placeholder="$${listing.rate}" readonly />
+				<input name="rate" class="form-control" placeholder="${listing.rate}" readonly />
 			</div>
 		</form>
 		<form:form action="/booking/create" method="POST" modelAttribute="booking" enctype="multipart/form-data">

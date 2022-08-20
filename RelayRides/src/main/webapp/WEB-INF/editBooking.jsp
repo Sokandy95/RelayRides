@@ -87,20 +87,20 @@
 		<form>
 			<div class="form-group">
 				<label for="title" class="form-label">Listing Title:</label>
-				<input name="title" class="form-control" placeholder="${listing.title}" readonly />
+				<input name="title" class="form-control" placeholder="${booking.getListing().getTitle()}" readonly />
 			</div>
 			<div class="form-group">
 				<label for="rate" class="form-label">Daily Rate:</label>
-				<input name="rate" class="form-control" placeholder="$${listing.rate}" readonly />
+				<input name="rate" class="form-control" placeholder="${booking.getListing().getRate()}" readonly />
 			</div>
 		</form>
-		<form:form action="/booking/edit/${booking.id }" method="POST" modelAttribute="booking" enctype="multipart/form-data">
+		<form:form action="/booking/edit/${booking.id}" method="POST" modelAttribute="booking" enctype="multipart/form-data">
 		<input type="hidden" name="_method" value="put" />
-			<input type="hidden" path="user" value="${user.id}" />
-			<input type="hidden" path="listing" value="${id}" />
+			<form:input type="hidden" path="user" value="${booking.getUser().getId()}" />
+			<form:input type="hidden" path="listing" value="${booking.getListing().getId()}" />
 			<div class="form-group">
 				<form:label for="start_date" path="start_date" class="form-label">Start Date:</form:label>
-				<form:input type="date" name="start_date" path="start_date" class="form-control"/>
+				<form:input type="date" name="start_date" path="start_date" class="form-control" />
 				<form:errors path="start_date" class="text-danger" />
 			</div>
 			<div class="form-group">
@@ -126,7 +126,7 @@
 				</form:select>
 				<form:errors path="status" class="text-danger" />
 			</div>
-			<input type="submit" class="btn btn-secondary mt-3" value="Request Reservation" />
+			<input type="submit" class="btn btn-secondary mt-3" value="Update Booking" />
 		</form:form>
 	</div>
 	</div>

@@ -326,6 +326,12 @@ public class MainController {
     	
     	System.out.println("new booking status: " + booking.getStatus());
     	
+    	booking.setFormattedStartDate(outputFormatter.format(booking.getStart_date()));
+    	System.out.println("Simple start date: " + booking.getFormattedStartDate());
+    	
+    	booking.setFormattedEndDate(outputFormatter.format(booking.getEnd_date()));
+    	System.out.println("Simple end date: " + booking.getFormattedEndDate());
+    	
     	bookingService.updateBooking(booking);
     	return "redirect:/dashboard";
     }
