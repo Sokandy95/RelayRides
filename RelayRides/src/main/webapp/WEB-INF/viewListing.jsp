@@ -80,7 +80,7 @@
 	<div class="container d-flex justify-content-center">
 		<div class="container bg-light mb-5 p-5 col-md-10 rounded listingForm">
 			<div class="row">
-				<h1 class="mb-3 text-center"><c:out value="${listing.title }"></c:out></h1>
+				<h1 class="mb-3 text-center head"><c:out value="${listing.title }"></c:out></h1>
 			</div>
 			<div class="row d-flex justify-content-center">
 				<div class="col-3">
@@ -92,7 +92,7 @@
 					<p>Rate: <c:out value="${listing.rate }"></c:out></p>
 					<p>Seats: <c:out value="${listing.seats }"></c:out></p>
 					<p>Description: <c:out value="${listing.description }"></c:out></p>
-					<a class="btn btn-secondary" href="/listing/reserve/${listing.id }">Book Now!</a>
+					<a class="btn btn-secondary mt-3" href="/listing/reserve/${listing.id }">Book Now!</a>
 				</div>
 			</div>
 		</div>

@@ -163,7 +163,7 @@
 					<c:forEach var="booking" items="${bookings}">
 						<tr>
 							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
-							<td><c:out value="${booking.getUser().getFirst_name}"></c:out> <c:out value="${booking.getUser().getLast_name}"></c:out></td>
+							<td><c:out value="${booking.getUser().getFirst_name()}"></c:out> <c:out value="${booking.getUser().getLast_name()}"></c:out></td>
 							<td><c:out value="${booking.getListing().getTitle()}"></c:out></td>
 							<td><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
 							<td><c:out value="${booking.getFormattedEndDate()}"></c:out></td>

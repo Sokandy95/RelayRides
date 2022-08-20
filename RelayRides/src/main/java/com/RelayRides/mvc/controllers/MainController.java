@@ -274,6 +274,7 @@ public class MainController {
     	}
 
     	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
+    	model.addAttribute("user", userService.findById((Long) session.getAttribute("userId")));
     	model.addAttribute("listing", listingService.findById(id));
 
     	
@@ -305,8 +306,8 @@ public class MainController {
     	return "redirect:/dashboard";
     }
     
-	@GetMapping("/booking/edit/{id}")
-	public String editBooking(Model model, @PathVariable("id") Long bookingId, HttpSession session) {
+	@GetMapping("/booking/edit/{bookingId}")
+	public String editBooking(Model model, @PathVariable("bookingId") Long bookingId, HttpSession session) {
 		if (session.getAttribute("userId") == null) {
 			return "redirect:/";
 		}

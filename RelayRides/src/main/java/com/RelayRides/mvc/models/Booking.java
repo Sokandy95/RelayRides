@@ -13,7 +13,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -44,7 +43,7 @@ public class Booking {
 	private Date created_at;
 	private Date updated_at;
 	
-	private String status = "pending";
+	private String status = "Pending";
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "listing_id")
