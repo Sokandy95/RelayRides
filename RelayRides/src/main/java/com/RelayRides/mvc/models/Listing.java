@@ -44,7 +44,7 @@ public class Listing {
 	private Boolean on_market = true;
 
 	@NotEmpty(message = "Description is required!")
-	@Size(min = 10, max = 300, message = "Description must be between 10-300 characters long!")
+	@Size(min = 1, max = 300, message = "Description must be between 10-300 characters long!")
 	private String description;
 
 	// stores URL of image upload

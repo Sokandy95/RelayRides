@@ -97,7 +97,7 @@
 			</div>
 			<div class="form-group">
 				<form:label for="rate" path="rate" class="form-label">Daily Rate:</form:label>
-				<form:input name="rate" class="form-control" path="rate" />
+				<form:input name="rate" class="form-control" path="rate" type="number" />
 				<form:errors path="rate" class="text-danger" />
 			</div>
 			<div class="form-group">

@@ -115,8 +115,8 @@
 				<div class="form-row">
 
 					<label for="myBio" name="myBio" class="text mt-3">My Bio</label>
-					<textarea name="myBio" class="form-control mt-2" rows="2"
-						value="${updateUser.myBio}"></textarea>
+					<textarea name="myBio" class="form-control mt-2" rows="5"
+						>${updateUser.myBio}</textarea>
 				</div>
 
 				<div>
