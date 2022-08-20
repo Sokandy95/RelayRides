@@ -36,7 +36,7 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg mb-5 border-bottom bg-dark opacity-75">
 			<div class="container-fluid">
-				<a class="h1 text-white text-decoration-none siteTitle" href="/listings">
+				<a class="h1 text-white text-decoration-none siteTitle" href="/dashboard">
 					<span> 
 						<i class="fa-solid fa-car h1 me-2"  style ="color: #fc46be"></i>
 					</span>
@@ -47,7 +47,7 @@
 				<ul class="navbar-nav">
 
 					<li class="nav-item mt-2">
-						<a class="nav-link active text-white browseLink" href="/listings">
+						<a class="nav-link active text-white browseLink" href="/listing">
 							<span>
 								<i class="fa fa-car-on logo" style ="color: #fc46be"></i>
 							</span>

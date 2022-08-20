@@ -47,7 +47,7 @@
 		class="navbar navbar-expand-lg mb-5 border-bottom bg-dark opacity-75">
 		<div class="container-fluid">
 			<a class="h1 text-white text-decoration-none siteTitle"
-				href="/listings"> <span> <i
+				href="/dashboard"> <span> <i
 					class="fa-solid fa-car h1 me-2" style="color: #fc46be"></i>
 			</span> RelayRides
 			</a>
