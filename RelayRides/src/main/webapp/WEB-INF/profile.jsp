@@ -30,7 +30,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=M+PLUS+Rounded+1c&display=swap"
 	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@1,900&display=swap" rel="stylesheet">
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true"%>
 <!DOCTYPE html>
@@ -73,7 +76,6 @@
 				</a>
 				<li class="nav-item"><a class="btn btn-secondary me-2"
 					href="/logout"> Logout</a></li>
-				<li class="nav-item"><img src="" alt="" /></li>
 			</ul>
 		</div>
 	</nav>
@@ -81,8 +83,9 @@
 </div>
 <div class="container">
 
-	<h1 class="profileHead bg-dark opacity-75 text-white rounded">My Profile</h1>
-	<div class="card" style="height: 570px">
+	<h1 class="profileHead bg-dark opacity-75 text-white rounded">My
+		Profile</h1>
+	<div class="card" style="height: 580px">
 		<div class="card-header">Welcome to your RelayProfile,
 			${updateUser.username}</div>
 		<div class="card-body">
@@ -93,9 +96,13 @@
 					<p>Last Name: ${updateUser.last_name}</p>
 					<p>Email: ${updateUser.email}</p>
 				</div>
+				<div class="me-5">
+					<h5>Biography:</h5>
+					<p>${updateUser.myBio}</p>
+				</div>
 				<div>
 					<img src="<c:out value="${updateUser.getImageUrl()}"></c:out>"
-						class="img-fluid img-thumbnail" style="max-width: 200px" />
+						/>
 				</div>
 			</div>
 
@@ -115,17 +122,17 @@
 				<div class="form-row">
 
 					<label for="myBio" name="myBio" class="text mt-3">My Bio</label>
-					<textarea name="myBio" class="form-control mt-2" rows="5"
-						>${updateUser.myBio}</textarea>
+					<textarea name="myBio" class="form-control mt-2" rows="3">${updateUser.myBio}</textarea>
 				</div>
-
-				<div>
-					<input type="submit" value="Update Profile"
-						class="btn btn-secondary mt-3" />
-				</div>
-				<a href="/dashboard"> <input type="button" value="Go Back"
-					class="btn btn-primary mt-3" />
-				</a>
+				<section class="d-flex">
+					<div>
+						<input type="submit" value="Update Profile"
+							class="btn btn-secondary mt-3" />
+					</div>
+					<a href="/dashboard"> <input type="button" value="Go Back"
+						class="btn btn-primary m-3" />
+					</a>
+				</section>
 			</form>
 		</div>
 	</div>

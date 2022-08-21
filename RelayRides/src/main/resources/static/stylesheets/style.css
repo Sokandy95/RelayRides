@@ -27,7 +27,7 @@ body {
 
 .head {
 	color: #fc46be;
-	font-family: 'M PLUS Rounded 1c', sans-serif;
+	font-family: 'Chivo', sans-serif;
 	opacity: 80%;
 }
 
@@ -75,4 +75,14 @@ th {
 
 p {
 	margin-bottom: 0;
+}
+img {
+	border: 2px solid  #fc46be;
+	border-radius: 50%;
+	object-fit: cover;
+	width: 150px;
+	height: 150px;
+}
+td {
+	text-align: center;
 }
