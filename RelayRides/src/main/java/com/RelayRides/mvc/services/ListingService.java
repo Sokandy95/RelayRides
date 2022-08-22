@@ -32,7 +32,7 @@ public class ListingService {
 		return null;
 	}
 
-	public Iterable<Listing> findByUser(User user) {
+	public Iterable<Listing> findAllByUser(User user) {
 		return listingRepository.findAllByUser(user);
 	}
 

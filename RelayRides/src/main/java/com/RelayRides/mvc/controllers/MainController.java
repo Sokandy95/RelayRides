@@ -111,7 +111,7 @@ public class MainController {
 		Long userId = (Long) session.getAttribute("userId");
 		User user = userService.findById(userId);
 		model.addAttribute("user", userService.findById(userId));
-		model.addAttribute("listings", listingService.getAllListings());
+		model.addAttribute("listings", listingService.findAllByUser(user));
 		model.addAttribute("bookings", bookingService.findAllByUser(user));
 
 		return "dashboard.jsp";
