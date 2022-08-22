@@ -81,7 +81,7 @@
 	</div>
 	<div class="container d-flex justify-content-center">
 		<div class="card mb-5 p-5 col-md-10" >
-			<img class="card-img-top" src="${listing.imageUrl }" alt="${listing.imageUrl }">
+			<img src="/${listing.getImageUrl() }" class="card-img-top" alt="${listing.getImageUrl() }">
 			<div class="card-body">
 				<h1 class="card-title mb-3 text-center head">
 					<c:out value="${listing.title }"></c:out>

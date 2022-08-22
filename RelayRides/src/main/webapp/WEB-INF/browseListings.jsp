@@ -95,6 +95,7 @@
 			</section>
 			<div class="col-md-9 col-xs-12 d-column defaultContainer defaultSize">
 				<c:forEach var="listing" items="${listings}">
+				<c:if test="${!listing.getUser().getId().equals(user.getId())}">
 					<div class="container d-flex text-center bg-light p-4 mb-3 rounded listingForm" style="max-height: 150px; border: 2px solid #fc46be">
 						<a href="/listing/${listing.getId() }"><img src="<c:out value="${listing.getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="width: 150px" /></a>
 						<div class="d-flex justify-content-between align-items-center container">
@@ -115,6 +116,7 @@
 							</p>
 						</div>
 					</div>
+				</c:if>
 				</c:forEach>
 			</div>
 		</div>

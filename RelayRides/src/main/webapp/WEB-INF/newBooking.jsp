@@ -78,7 +78,7 @@
 	<div class="container">
 	<div class="row d-flex justify-content-around">
 	<div class="col-xs-12 col-md-3 bg-light px-5 py-3 rounded" style="max-height: 250px; vertical-align: middle">
-		<img class="img img-thumbnail" src="${listing.imageUrl}" alt="${listing.imageUrl}" />
+		<img class="img img-thumbnail" src="/${listing.imageUrl}" alt="${listing.imageUrl}" />
 		<p class="pt-3 text-center fLabel">${listing.model }</p>
 	</div>
 	<div class="col-xs-12 col-md-6 bg-light px-5 py-3 rounded">

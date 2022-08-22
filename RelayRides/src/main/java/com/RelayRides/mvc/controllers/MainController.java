@@ -247,6 +247,7 @@ public class MainController {
 
     	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
     	model.addAttribute("listings", listingService.getAllListings());
+    	model.addAttribute("user", userService.findById((Long) session.getAttribute("userId")));
     	
     	return "browseListings.jsp";
     }
