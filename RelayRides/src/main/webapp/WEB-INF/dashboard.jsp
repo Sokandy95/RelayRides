@@ -103,7 +103,7 @@
 							<td class="text-dark align-middle"><c:out value="${booking.getListing().getModel()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
-							<td class="text-dark align-middle"><c:out value="${listing.getStatus()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getStatus()}"></c:out></td>
 							<td class="text-dark align-middle">
 								<a class="btn btn-edit me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
 								<a class="btn btn-danger me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Cancel</a>
