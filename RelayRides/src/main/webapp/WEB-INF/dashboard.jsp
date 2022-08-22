@@ -80,7 +80,7 @@
 			<img src="<c:out value="${user.getImageUrl()}"></c:out>"/>
 			<h1 class="d-flex text-white head align-items-center m-4">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
 		</div>
-		<div class="container bg-dark mb-5 body-container table1">
+		<div class="container bg-dark mb-5 pb-3 body-container table1">
 			<h3 class='head pt-3 pb-1'>My Renter Dashboard</h3>
 			<a class="btn btn-secondary mb-3" href="/listings">Browse Available Rentals</a>
 			<table class="table text-nowrap text-white" id="tbl">
@@ -97,23 +97,23 @@
 				</thead>
 				<tbody>
 					<c:forEach var="booking" items="${bookings}">
-						<tr class="p-3">
+						<tr class="p-3 bg-light">
 							<td ><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
-							<td><c:out value="${booking.getListing().getLocation()}"></c:out></td>
-							<td><c:out value="${booking.getListing().getModel()}"></c:out></td>
-							<td><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
-							<td><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
-							<td><c:out value="${listing.getStatus()}"></c:out></td>
-							<td>
-								<a class="btn btn-secondary me-2" href="/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
-								<a class="btn btn-secondary me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Cancel</a>
+							<td class="text-dark align-middle"><c:out value="${booking.getListing().getLocation()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getListing().getModel()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${listing.getStatus()}"></c:out></td>
+							<td class="text-dark align-middle">
+								<a class="btn btn-edit me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
+								<a class="btn btn-danger me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Cancel</a>
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-			<div class="container bg-dark mb-5 body-container table2">
+			<div class="container bg-dark mb-5 pb-3 body-container table2">
 			<h3 class='head pt-3 pb-1'>My Owner Dashboard</h3>
 			<a class="btn btn-secondary mb-2" href="/listing/new">List a New Car</a>
 			<h5 class="text-white mt-3">My Cars</h5>
@@ -135,8 +135,8 @@
 							<td class="text-dark align-middle"><c:out value="${listing.getModel()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${listing.getDescription()}"></c:out></td>
 							<td class="align-middle">
-								<a class="btn btn-secondary me-2" href="/listing/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
-								<a class="btn btn-secondary me-2" href="/listing/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
+								<a class="btn btn-edit me-2" href="/listing/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
+								<a class="btn btn-danger me-2" href="/listing/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
 								<form:form class="d-inline" action="/listing/delete/${listing.id}" method="post">
 									<input type="hidden" name="_method" value="delete">
 								</form:form>
@@ -161,16 +161,16 @@
 				</thead>
 				<tbody>
 					<c:forEach var="booking" items="${bookings}">
-						<tr>
+						<tr class="bg-light">
 							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
-							<td><c:out value="${booking.getUser().getFirst_name()}"></c:out> <c:out value="${booking.getUser().getLast_name()}"></c:out></td>
-							<td><c:out value="${booking.getListing().getTitle()}"></c:out></td>
-							<td><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
-							<td><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
-							<td><c:out value="${booking.getStatus()}"></c:out></td>
-							<td>
-								<a class="btn btn-secondary me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit/Approve</a>
-								<a class="btn btn-secondary me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
+							<td class="text-dark align-middle"><c:out value="${booking.getUser().getFirst_name()}"></c:out> <c:out value="${booking.getUser().getLast_name()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getListing().getTitle()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${booking.getStatus()}"></c:out></td>
+							<td class="text-dark align-middle">
+								<a class="btn btn-approve me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit/Approve</a>
+								<a class="btn btn-danger me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
 							</td>
 						</tr>
 					</c:forEach>

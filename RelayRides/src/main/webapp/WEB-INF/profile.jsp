@@ -80,7 +80,7 @@
 		</div>
 	</nav>
 </div>
-</div>
+
 <div class="container">
 
 	<h1 class="profileHead bg-dark opacity-75 text-white rounded">My

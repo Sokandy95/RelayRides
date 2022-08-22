@@ -39,7 +39,7 @@
 			<div class="container-fluid">
 				<a class="h1 text-white text-decoration-none siteTitle" href="/dashboard">
 					<span> 
-						<i class="fa-solid fa-car h1 me-2"  style ="color: #fc46be"></i>
+						<i class="fa-solid fa-car h1 me-2" style ="color: #fc46be"></i>
 					</span>
 					RelayRides
 				</a>
@@ -71,9 +71,7 @@
 						<a class="btn btn-secondary me-2" href="/logout">
 							Logout</a>
 					</li>
-					<li class="nav-item">
-						<img src="" alt="" />
-					</li>
+
 				</ul>
 			</div>
 		</nav>
@@ -85,7 +83,7 @@
 			</div>
 			<div class="row d-flex justify-content-center">
 				<div class="col-3">
-					<img src="${listing.imageUrl }" alt="${listing.imageUrl }" class="img-fluid" />
+					<img src="${listing.imageUrl }" alt="${listing.imageUrl }" class="img-fluid img-thumbnail"/>
 				</div>
 				<div class="col">
 					<p>Make/Model: <c:out value="${listing.title }"></c:out></p>
@@ -98,6 +96,7 @@
 			</div>
 		</div>
 	</div>
+		<script src="https://kit.fontawesome.com/3e736bf66d.js" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -87,3 +87,15 @@ img {
 td {
 	text-align: center;
 }
+.fLabel {
+	font-family: font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	color: purple;
+}
+.btn-approve {
+	background-color: green;
+	color: white;
+}
+.btn-edit{
+	background-color: lightgrey;
+}
