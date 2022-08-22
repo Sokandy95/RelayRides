@@ -68,9 +68,6 @@
 						<a class="btn btn-secondary me-2" href="/logout">
 							Logout</a>
 					</li>
-					<li class="nav-item">
-						<img src="" alt="" />
-					</li>
 				</ul>
 			</div>
 		</nav>

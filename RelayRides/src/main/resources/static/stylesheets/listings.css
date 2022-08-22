@@ -1,6 +1,7 @@
 body {
-	background-image: url('pics/purpleRideShare.png');
+	background-image: url('pics/listing.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 	background-position: center;
 }

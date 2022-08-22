@@ -97,8 +97,8 @@
 				</thead>
 				<tbody>
 					<c:forEach var="booking" items="${bookings}">
-						<tr>
-							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
+						<tr class="p-3">
+							<td ><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
 							<td><c:out value="${booking.getListing().getLocation()}"></c:out></td>
 							<td><c:out value="${booking.getListing().getModel()}"></c:out></td>
 							<td><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
@@ -131,10 +131,10 @@
 					<c:forEach var="listing" items="${listings}">
 						<tr class="bg-light">
 							<td class="text-dark"><img src="<c:out value="${listing.getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px; border: 2px solid rgba(108, 9, 121, 1)" /></td>
-							<td class="text-dark"><c:out value="${listing.getTitle()}"></c:out></td>
-							<td class="text-dark"><c:out value="${listing.getModel()}"></c:out></td>
-							<td class="text-dark"><c:out value="${listing.getDescription()}"></c:out></td>
-							<td>
+							<td class="text-dark align-middle"><c:out value="${listing.getTitle()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${listing.getModel()}"></c:out></td>
+							<td class="text-dark align-middle"><c:out value="${listing.getDescription()}"></c:out></td>
+							<td class="align-middle">
 								<a class="btn btn-secondary me-2" href="/listing/edit/<c:out value="${listing.getId()}"></c:out>">Edit</a>
 								<a class="btn btn-secondary me-2" href="/listing/delete/<c:out value="${listing.getId()}"></c:out>">Delete</a>
 								<form:form class="d-inline" action="/listing/delete/${listing.id}" method="post">
