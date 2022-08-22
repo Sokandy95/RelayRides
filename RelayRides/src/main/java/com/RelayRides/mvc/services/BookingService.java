@@ -36,7 +36,7 @@ public class BookingService {
 		return bookingRepository.findAllByUser(user);
 	}
 
-	public Iterable<Booking> findByListing(Listing listing) {
+	public Iterable<Booking> findAllByListing(Listing listing) {
 		return bookingRepository.findAllByListing(listing);
 	}
 

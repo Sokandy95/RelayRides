@@ -160,7 +160,8 @@
 				</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="booking" items="${bookings}">
+					<c:forEach var="booking" items="${allBookings}">
+						<c:if test="${booking.getListing().getUser().getId().equals(user.getId()) }">
 						<tr class="bg-light">
 							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px; border: 2px solid rgba(108, 9, 121, 1)" /></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getUser().getFirst_name()}"></c:out> <c:out value="${booking.getUser().getLast_name()}"></c:out></td>
@@ -173,6 +174,7 @@
 								<a class="btn btn-danger me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
 							</td>
 						</tr>
+						</c:if>
 					</c:forEach>
 				</tbody>
 			</table>

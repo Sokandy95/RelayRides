@@ -113,6 +113,7 @@ public class MainController {
 		model.addAttribute("user", userService.findById(userId));
 		model.addAttribute("listings", listingService.findAllByUser(user));
 		model.addAttribute("bookings", bookingService.findAllByUser(user));
+		model.addAttribute("allBookings", bookingService.getAllBookings());
 
 		return "dashboard.jsp";
 
