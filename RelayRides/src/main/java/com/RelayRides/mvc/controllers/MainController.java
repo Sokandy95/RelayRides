@@ -109,9 +109,10 @@ public class MainController {
 		// get userId from session to cast to Long; session.getAttribute("userId")
 		// returns an object
 		Long userId = (Long) session.getAttribute("userId");
+		User user = userService.findById(userId);
 		model.addAttribute("user", userService.findById(userId));
 		model.addAttribute("listings", listingService.getAllListings());
-		model.addAttribute("bookings", bookingService.getAllBookings());
+		model.addAttribute("bookings", bookingService.findAllByUser(user));
 
 		return "dashboard.jsp";
 
