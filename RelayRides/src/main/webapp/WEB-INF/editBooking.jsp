@@ -70,27 +70,25 @@
 						<a class="btn btn-secondary me-2" href="/logout">
 							Logout</a>
 					</li>
-					<li class="nav-item">
-						<img src="" alt="" />
-					</li>
 				</ul>
 			</div>
 		</nav>
 	</div>
 	<div class="container">
 	<div class="row d-flex justify-content-around">
-	<div class="col-xs-12 col-md-3 bg-light px-5 py-3 rounded listingForm">
-		<img src="${listing.imageUrl}" alt="${listing.imageUrl}" />
+	<div class="col-xs-12 col-md-3 bg-light px-5 py-3 rounded" style="max-height: 250px; vertical-align: middle">
+		<img class="img img-thumbnail" src="${booking.getListing().getImageUrl()}" alt="${booking.getListing().getImageUrl()}" />
+		<p class="pt-3 text-center fLabel">${booking.getListing().getModel()}</p>
 	</div>
 	<div class="col-xs-12 col-md-6 bg-light px-5 py-3 rounded listingForm">
 		<h1 class="mb-3 head">Edit/Approve Booking</h1>
 		<form>
 			<div class="form-group">
-				<label for="title" class="form-label">Listing Title:</label>
+				<label for="title" class="form-label fLabel mt-3">Listing Title:</label>
 				<input name="title" class="form-control" placeholder="${booking.getListing().getTitle()}" readonly />
 			</div>
 			<div class="form-group">
-				<label for="rate" class="form-label">Daily Rate:</label>
+				<label for="rate" class="form-label fLabel mt-3">Daily Rate:</label>
 				<input name="rate" class="form-control" placeholder="${booking.getListing().getRate()}" readonly />
 			</div>
 		</form>
@@ -99,27 +97,27 @@
 			<form:input type="hidden" path="user" value="${booking.getUser().getId()}" />
 			<form:input type="hidden" path="listing" value="${booking.getListing().getId()}" />
 			<div class="form-group">
-				<form:label for="start_date" path="start_date" class="form-label">Start Date:</form:label>
+				<form:label for="start_date" path="start_date" class="fLabel mt-3 form-label">Start Date:</form:label>
 				<form:input type="date" name="start_date" path="start_date" class="form-control" />
 				<form:errors path="start_date" class="text-danger" />
 			</div>
 			<div class="form-group">
-				<form:label for="end_date" path="end_date" class="form-label">End Date:</form:label>
+				<form:label for="end_date" path="end_date" class="fLabel mt-3 form-label">End Date:</form:label>
 				<form:input type="date" name="end_date" path="end_date" class="form-control" />
 				<form:errors path="end_date" class="text-danger" />
 			</div>
 			<div class="form-group">
-				<form:label for="numDays" path="numDays" class="form-label">Number of Days:</form:label>
+				<form:label for="numDays" path="numDays" class="fLabel mt-3 form-label">Number of Days:</form:label>
 				<form:input type="number" name="numDays" path="numDays" class="form-control" min="1" max="30" />
 				<form:errors path="numDays" class="text-danger" />
 			</div>
 			<div class="form-group">
-				<form:label for="price" path="price" class="form-label">Total Price:</form:label>
+				<form:label for="price" path="price" class="fLabel mt-3 form-label">Total Price:</form:label>
 				<form:input type="text" name="price" path="price" class="form-control" />
 				<form:errors path="price" class="text-danger" />
 			</div>
 			<div class="form-group">
-				<form:label for="status" path="status" class="form-label">Update Status:</form:label>
+				<form:label for="status" path="status" class="fLabel mt-3 form-label">Update Status:</form:label>
 				<form:select name="status" path="status" class="form-control">
 					<form:option value="Pending">Pending</form:option>
 					<form:option value="Approved">Approved</form:option>
