@@ -77,7 +77,7 @@
 	</div>
 	<div class="container">
 		<div class= "d-flex mb-3">
-			<img src="<c:out value="${user.getImageUrl()}"></c:out>"/>
+			<img class="profileImg" src="<c:out value="${user.getImageUrl()}"></c:out>"/>
 			<h1 class="d-flex text-white head align-items-center m-4">Welcome, <c:out value="${ user.getFirst_name() }"></c:out>!</h1>
 		</div>
 		<div class="container bg-dark mb-5 pb-3 body-container table1">
@@ -98,7 +98,7 @@
 				<tbody>
 					<c:forEach var="booking" items="${bookings}">
 						<tr class="p-3 bg-light">
-							<td ><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
+							<td ><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px; border: 2px solid rgba(108, 9, 121, 1)" /></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getListing().getLocation()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getListing().getModel()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getFormattedStartDate()}"></c:out></td>
@@ -162,7 +162,7 @@
 				<tbody>
 					<c:forEach var="booking" items="${bookings}">
 						<tr class="bg-light">
-							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px" /></td>
+							<td><img src="<c:out value="${booking.getListing().getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="max-width: 200px; border: 2px solid rgba(108, 9, 121, 1)" /></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getUser().getFirst_name()}"></c:out> <c:out value="${booking.getUser().getLast_name()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getListing().getTitle()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getFormattedStartDate()}"></c:out></td>

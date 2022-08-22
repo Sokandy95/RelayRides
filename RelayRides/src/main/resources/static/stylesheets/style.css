@@ -77,7 +77,7 @@ th {
 p {
 	margin-bottom: 0;
 }
-img {
+.profileImg {
 	border: 2px solid  #fc46be;
 	border-radius: 50%;
 	object-fit: cover;

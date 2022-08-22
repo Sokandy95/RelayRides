@@ -93,13 +93,10 @@
 			<section class="d-flex justify-content-center">
 				<h1 class="head text-white">What will you RelayRide on next?</h1>
 			</section>
-			<div class="col-md-9 col-xs-12 d-lg-column defaultContainer defaultSize">
+			<div class="col-md-9 col-xs-12 d-column defaultContainer defaultSize">
 				<c:forEach var="listing" items="${listings}">
-					<div
-						class="container d-flex  text-center bg-light p-4 mb-3 rounded listingForm" style="max-height: 150px; border: 2px solid  #fc46be">
-						<a href="/listing/${listing.getId() }"><img
-							src="<c:out value="${listing.getImageUrl()}"></c:out>"
-							class="img-fluid img-thumbnail" /></a>
+					<div class="container d-flex text-center bg-light p-4 mb-3 rounded listingForm" style="max-height: 150px; border: 2px solid #fc46be">
+						<a href="/listing/${listing.getId() }"><img src="<c:out value="${listing.getImageUrl()}"></c:out>" class="img-fluid img-thumbnail" style="width: 150px" /></a>
 						<div class="d-flex justify-content-between align-items-center container">
 							<h4 style="color: #f53163">
 								<c:out value="${listing.getTitle()}"></c:out>

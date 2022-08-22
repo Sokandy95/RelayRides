@@ -83,7 +83,7 @@
 
 <div class="container">
 
-	<h1 class="profileHead bg-dark opacity-75 text-white rounded">My
+	<h1 class="profileHead bg-dark opacity-75 text-white rounded p-3">My
 		Profile</h1>
 	<div class="card" style="height: 580px">
 		<div class="card-header">Welcome to your RelayProfile,
@@ -101,7 +101,7 @@
 					<p>${updateUser.myBio}</p>
 				</div>
 				<div>
-					<img src="<c:out value="${updateUser.getImageUrl()}"></c:out>"
+					<img class="profileImg" src="<c:out value="${updateUser.getImageUrl()}"></c:out>"
 						/>
 				</div>
 			</div>
