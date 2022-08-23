@@ -92,7 +92,7 @@
 				<input name="rate" class="form-control" placeholder="${booking.getListing().getRate()}" readonly />
 			</div>
 		</form>
-		<form:form action="/booking/edit/${booking.id}" method="POST" modelAttribute="booking" enctype="multipart/form-data">
+		<form:form action="/booking/owner/edit/${booking.id}" method="POST" modelAttribute="booking" enctype="multipart/form-data">
 		<input type="hidden" name="_method" value="put" />
 			<form:input type="hidden" path="user" value="${booking.getUser().getId()}" />
 			<form:input type="hidden" path="listing" value="${booking.getListing().getId()}" />

@@ -166,8 +166,6 @@ public class MainController {
     	
     	this.listingService.createListing(listing);
     	
-    	//redirectAttributes.addFlashAttribute("message", "gallery piece added");
-    	
     	return "redirect:/dashboard";
     }
     
@@ -279,20 +277,22 @@ public class MainController {
     	// get userId from session to cast to Long; session.getAttribute("userId") returns an object
     	model.addAttribute("user", userService.findById((Long) session.getAttribute("userId")));
     	model.addAttribute("listing", listingService.findById(id));
-
+    	model.addAttribute("booking", new Booking());
     	
     	return "newBooking.jsp";
     }
     
     @PostMapping("/booking/create")
     public String createBooking(
+    		@ModelAttribute("listing") Listing listing,
     		@Valid @ModelAttribute("booking") Booking booking,
     		BindingResult result,
-    		//RedirectAttributes redirectAttributes,
-    		Model model) {
+    		Model model,
+    		HttpSession session) {
     	
     	if(result.hasErrors()) {
     		model.addAttribute("booking", booking);
+        	model.addAttribute("user", userService.findById((Long) session.getAttribute("userId")));
     		return "newBooking.jsp";
     	}
     	
@@ -310,7 +310,11 @@ public class MainController {
     }
     
 	@GetMapping("/booking/owner/edit/{bookingId}")
-	public String ownerEditBooking(Model model, @PathVariable("bookingId") Long bookingId, HttpSession session) {
+	public String ownerEditBooking(
+			Model model,
+			@PathVariable("bookingId") Long bookingId,
+			HttpSession session
+			) {
 		if (session.getAttribute("userId") == null) {
 			return "redirect:/";
 		}
@@ -322,7 +326,11 @@ public class MainController {
 	}
 	
 	@GetMapping("/booking/customer/edit/{bookingId}")
-	public String customerEditBooking(Model model, @PathVariable("bookingId") Long bookingId, HttpSession session) {
+	public String customerEditBooking(
+			Model model, 
+			@PathVariable("bookingId") Long bookingId, 
+			HttpSession session
+			) {
 		if (session.getAttribute("userId") == null) {
 			return "redirect:/";
 		}
@@ -333,11 +341,39 @@ public class MainController {
 		return "customerEditBooking.jsp";
 	}
     
-    @PutMapping("/booking/edit/{id}")
+    @PutMapping("/booking/owner/edit/{id}")
+    public String updateOwnerBooking(
+    		@Valid @ModelAttribute("booking") Booking booking, 
+    		BindingResult result,
+    		Model model) {
+    	
+    	if(result.hasErrors()) {
+    		model.addAttribute("booking", booking);
+    		return "ownerEditBooking.jsp";
+    	}
+    	
+    	System.out.println("new booking status: " + booking.getStatus());
+    	
+    	booking.setFormattedStartDate(outputFormatter.format(booking.getStart_date()));
+    	System.out.println("Simple start date: " + booking.getFormattedStartDate());
+    	
+    	booking.setFormattedEndDate(outputFormatter.format(booking.getEnd_date()));
+    	System.out.println("Simple end date: " + booking.getFormattedEndDate());
+    	
+    	bookingService.updateBooking(booking);
+    	return "redirect:/dashboard";
+    }
+    
+    @PutMapping("/booking/customer/edit/{id}")
     public String updateBooking(
     		@Valid @ModelAttribute("booking") Booking booking, 
     		BindingResult result,
     		Model model) {
+    	
+    	if(result.hasErrors()) {
+    		model.addAttribute("booking", booking);
+    		return "customerEditBooking.jsp";
+    	}
     	
     	System.out.println("new booking status: " + booking.getStatus());
     	
