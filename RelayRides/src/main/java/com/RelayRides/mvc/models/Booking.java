@@ -2,6 +2,7 @@ package com.RelayRides.mvc.models;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -40,7 +41,9 @@ public class Booking {
 	private String formattedStartDate;
 	private String formattedEndDate;
 
+	@Column(name = "created_at", updatable = false)
 	private Date created_at;
+	
 	private Date updated_at;
 	
 	private String status = "Pending";

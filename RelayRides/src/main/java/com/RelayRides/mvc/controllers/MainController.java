@@ -309,8 +309,8 @@ public class MainController {
     	return "redirect:/dashboard";
     }
     
-	@GetMapping("/booking/edit/{bookingId}")
-	public String editBooking(Model model, @PathVariable("bookingId") Long bookingId, HttpSession session) {
+	@GetMapping("/booking/owner/edit/{bookingId}")
+	public String ownerEditBooking(Model model, @PathVariable("bookingId") Long bookingId, HttpSession session) {
 		if (session.getAttribute("userId") == null) {
 			return "redirect:/";
 		}
@@ -318,7 +318,19 @@ public class MainController {
 		Booking booking = bookingService.findById(bookingId);
 		model.addAttribute("booking", booking);
 
-		return "editBooking.jsp";
+		return "ownerEditBooking.jsp";
+	}
+	
+	@GetMapping("/booking/customer/edit/{bookingId}")
+	public String customerEditBooking(Model model, @PathVariable("bookingId") Long bookingId, HttpSession session) {
+		if (session.getAttribute("userId") == null) {
+			return "redirect:/";
+		}
+
+		Booking booking = bookingService.findById(bookingId);
+		model.addAttribute("booking", booking);
+
+		return "customerEditBooking.jsp";
 	}
     
     @PutMapping("/booking/edit/{id}")

@@ -3,6 +3,7 @@ package com.RelayRides.mvc.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -71,8 +72,9 @@ public class User {
 		this.imageUrl = imageUrl;
 	}
 
-
+	@Column(name = "created_at", updatable = false)
 	private Date created_at;
+	
 	private Date updated_at;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

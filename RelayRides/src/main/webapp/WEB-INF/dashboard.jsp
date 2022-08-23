@@ -105,7 +105,7 @@
 							<td class="text-dark align-middle"><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getStatus()}"></c:out></td>
 							<td class="text-dark align-middle">
-								<a class="btn btn-edit me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
+								<a class="btn btn-edit me-2" href="/booking/customer/edit/<c:out value="${booking.getId()}"></c:out>">Edit</a>
 								<a class="btn btn-danger me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Cancel</a>
 							</td>
 						</tr>
@@ -170,7 +170,7 @@
 							<td class="text-dark align-middle"><c:out value="${booking.getFormattedEndDate()}"></c:out></td>
 							<td class="text-dark align-middle"><c:out value="${booking.getStatus()}"></c:out></td>
 							<td class="text-dark align-middle">
-								<a class="btn btn-approve me-2" href="/booking/edit/<c:out value="${booking.getId()}"></c:out>">Edit/Approve</a>
+								<a class="btn btn-approve me-2" href="/booking/owner/edit/<c:out value="${booking.getId()}"></c:out>">Edit/Approve</a>
 								<a class="btn btn-danger me-2" href="/booking/delete/<c:out value="${booking.getId()}"></c:out>">Deny</a>
 							</td>
 						</tr>
